@@ -1,0 +1,50 @@
+@media (max-width: 600px) {
+    .content main {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        width: 100%;
+    }
+
+    .headline h1 {
+        font-size: 55px;
+    }
+
+    .socialmedia {
+        margin-top: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 400px) {
+    .headline h1 {
+        font-size: 50px;
+    }
+
+    footer img:first-child {
+        z-index: 1;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+    
+    footer img:nth-child(2) {
+        z-index: 3;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        background-color: var(--primary-color);
+        top: 715px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+}

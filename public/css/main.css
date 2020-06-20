@@ -1,0 +1,18 @@
+:root {
+    --primary-color: #002135;
+    --secondary-color: #00E75B;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}

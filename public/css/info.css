@@ -1,0 +1,147 @@
+#info .content {
+    position: relative;
+    background: url(../assets/fading.svg) no-repeat, url(../assets/office.svg) no-repeat;
+    background-size: 124.8em;
+}
+
+#info .content h2 {
+    font-size: 72px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    max-width: 1000px;
+    margin: 20rem auto 18.8rem auto;
+    filter: opacity(95%);
+}
+
+/* navbar */
+
+nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: var(--primary-color);
+    max-width: 700px;
+    border-radius: 0 0 60px 60px;
+    z-index: 10;
+}
+
+nav a{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 200ms ease-in-out;
+}
+
+nav a:hover {
+    transform: scale(1.1);
+}
+
+nav img {
+    margin-right: 22px;
+}
+
+/* WhatsApp */
+
+#whats-position{
+    position: relative;
+    top: -5vh;
+    left: -4vw;
+    margin-left: auto;
+    height: 100px;
+    width: 100px;
+}
+
+#whats-position img {
+    width: 80%;
+    cursor: pointer;
+}
+
+/* first screen */
+
+.first-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    background: url(../assets/fading2.svg) no-repeat center center, url(../assets/office2.svg) no-repeat center center;
+    background-size: cover;
+    color: white;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.pillars{
+    margin: auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 70px;
+    max-width: 620px;
+}
+
+.pillars h3 {
+    text-align: center;
+    font-weight: lighter;
+    margin-left: 35px;
+    font-size: 48px;
+}
+
+.pillars img{
+    align-items: center;
+    margin: 0 auto;
+}
+
+.pillars p {
+    line-height: 25px;
+    padding-bottom: 15px;
+}
+
+#green-circle {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    padding: 18px;
+    border-radius: 50%;
+    max-width: 100%;
+    margin-right: 35px;
+}
+
+#quote {
+    max-width: 550px;
+    width: 100%;
+}
+
+#quote h4 {
+    font-size: 300%;
+    font-weight: bold;
+    line-height: 60px;
+    padding: 3.5vw;
+    border: 2.4px white solid;
+}
+
+#first-pillar {
+    display: flex;
+    align-items: center;
+}
+
+#second-pillar {
+    display: flex;
+    align-items: center;
+    
+}
+
+#third-pillar {
+    display: flex;
+    align-items: center;
+}

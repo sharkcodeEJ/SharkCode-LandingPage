@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .first-screen h2 {
@@ -20,6 +21,7 @@
     color: white;
     text-align: center;
     max-width: 900px;
+    width: 80%;
     filter: opacity(95%);
 }
 
@@ -70,6 +72,7 @@ nav img {
     background: url(../assets/fading2.svg) no-repeat center center, url(../assets/office2.svg) no-repeat center center;
     background-size: cover;
     color: white;
+    overflow: hidden;
 }
 
 .pillars{
@@ -77,6 +80,7 @@ nav img {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 620px;
+    width: 80%;
 }
 
 .pillars > * {

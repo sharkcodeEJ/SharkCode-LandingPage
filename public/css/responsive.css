@@ -1,14 +1,3 @@
-@media (min-width: 2000px) {
-    #info .content {
-        background-size: contain;
-    }
-
-    #whats-position img {
-        width: 100%;
-        cursor: pointer;
-    }
-}
-
 @media (min-width: 1280px) {
     #footer {
         background-size: 100vw;
@@ -16,37 +5,31 @@
 }
 
 @media (max-width: 1280px) {
-    #info .content h2 {
+    .first-screen h2 {
         font-size: 50px;
         max-width: 800px;
     }
 
-    #info .content img:nth-child(3){
-        max-width: 90px;
-        right: 40px;
-        bottom: 30px;
-    }
-
-    .first-screen {
-        display: grid;
-        grid-template-columns: 1fr;
+    .second-screen {
+        justify-content: center;
+        align-items: center;
     }
 
     .pillars {
-        margin: auto auto;
         width: 80%;
         max-width: 840px;
-        gap: 45px;
-        margin-bottom: 1vw;
+    }
+
+    .pillars > * {
+        margin-top: 5vw;
     }
 
     .pillars h3 {
-        margin-left: 0;
-    }
+        margin: 0 auto;
+    } 
 
     #quote {
-        margin: -10px auto 0 auto;
-        max-width: 60%;
+        display: none;
     }
 
     #quote h4 {
@@ -68,18 +51,13 @@
     }
 
     nav img {
+        width: 22px;
         margin-right: 16px;
     }
 
-    #info .content h2 {
+    #info .first-screen h2 {
         font-size: 40px;
         max-width: 500px;
-    }
-
-    #info .content img:nth-child(3){
-        max-width: 80px;
-        right: 30px;
-        bottom: 20px;
     }
 
     #division {
@@ -135,21 +113,9 @@
         display: none;
     }
 
-    #info .content h2 {
+    #info .first-screen h2 {
         font-size: 35px;
         max-width: 300px;
-    }
-
-    #info .content img:nth-child(3){
-        max-width: 60px;
-        right: 15px;
-        bottom: 10px;
-    }
-
-    #whats-position{
-        left: 3vw;
-        margin: 0 auto;
-        transform: scale(0.8);
     }
 
     .pillars {
@@ -157,16 +123,20 @@
         width: 90%;
     }
 
+    .pillars > * {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin: 10vw auto 0 auto;
+        gap: 20px;
+    }
+
     .pillars p {
         padding-bottom: 0;
     }
 
-    #quote {
-        display: none;
-    }
-
-    #info .content h2 {
-        margin: 24vh auto 24vh auto;
+    #green-circle {
+        margin: 0 auto;
     }
 }
 
@@ -183,10 +153,14 @@
         font-size: 40px;
     }
 
-    #green-circle {
-        margin-right: 25px;
+    .pillars > * {
+        margin: 5vw auto 0 auto;
+        gap: 10px;
     }
 
+    #green-circle {
+        transform: scale(0.8);
+    }
 }
 
 @media (max-width: 360px) {
@@ -198,13 +172,12 @@
         margin-top: 85px;
     }
 
-    #whats-position{
-        left: 5vw;
+    .pillars {
+        width: 80%;
     }
 
-    .pillars {
-        text-align: center;
-        width: 80%;
+    .pillars > * {
+        margin: 10vw auto 0 auto;
     }
 
     .pillars h3 {
@@ -214,5 +187,4 @@
     #green-circle {
         display: none;
     }
-
 }

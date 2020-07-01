@@ -161,6 +161,10 @@
         margin-top: 85px;
     }
 
+    #info .first-screen h2 {
+        font-size: 30px;
+    }
+
     .pillars {
         width: 80%;
     }

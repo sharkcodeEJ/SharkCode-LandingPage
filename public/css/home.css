@@ -13,7 +13,7 @@
     height: 30px;
 }
 
-#page-home .content main {
+#page-home .content article {
     display: flex;
     align-items: center;
     justify-content: space-between;

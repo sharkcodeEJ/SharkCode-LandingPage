@@ -61,9 +61,62 @@ nav img {
     margin-right: 22px;
 }
 /* about us screen */
+.about-us-screen:after{
+    position: absolute;
 
-.about-us-screen {
+
+
+    content: "";
     
+ 
+  
+}
+
+.about-us-screen-image {
+    height: 1400px;
+   
+    /* width: 90%;
+    max-width: 1400px;
+    margin: 0 auto; */
+
+    background-image: url("../assets/background-about-us.svg");
+    background-size: 100%;
+    width: 100%;
+    z-index: -1;
+
+
+}
+.about-us-screen{
+    width: 100%;
+    height: 100%;
+    padding-top: 128px;
+
+    background: radial-gradient(50% 50% at 50% 50%,
+    rgba(24, 24, 24, 0) 0%,
+     rgba(11, 29, 40, 0.504687)
+      53.12%, 
+    rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
+}
+
+.about-us-screen h2 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 96px;
+    line-height: 113px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+.about-us-screen p {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #FFFFFF;
+
 }
 
 

@@ -2,9 +2,9 @@
     background-color: var(--primary-color);
 }
 
-/* first screen */
+/* we are screen */
 
-.first-screen {
+.we-are-screen {
     position: relative;
     display: flex;
     background: url(../assets/fading.svg) no-repeat center center, url(../assets/office.svg) no-repeat center center;
@@ -15,7 +15,7 @@
     overflow: hidden;
 }
 
-.first-screen h2 {
+.we-are-screen h2 {
     font-size: 72px;
     font-weight: bold;
     color: white;
@@ -60,10 +60,17 @@ nav img {
     width: 27px;
     margin-right: 22px;
 }
+/* about us screen */
 
-/* second screen */
+.about-us-screen {
+    
+}
 
-.second-screen {
+
+
+/* pillars screen */
+
+.pillars-screen {
     position: relative;
     display: flex;
     align-items: center;

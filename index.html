@@ -107,7 +107,7 @@
             <div class="scrolable">
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>1
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>2
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>3
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>4
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>5
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>6
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. </p>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="card">
                     <img src="public/assets/peapleTest.jpg" alt="">
-                    <h3>Manuela
+                    <h3>7
                     <span>Art Director</span>
                     </h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
@@ -191,59 +191,8 @@
                 </div>
             </div>
         </article>
-        <script>
 
-            var dragMe = document.querySelector(".scrolable");
-            
-            console.log(dragMe );
-            /* o x inicial do drag*/
-            dragOfX = 0,
-            /* o y inicial do drag */
-            dragOfY = 0;
-
-            /* ao segurar o elemento */
-            function dragStart(e) {
-                /* define o x inicial do drag */
-                dragOfX = e.pageX - dragMe.offsetLeft;
-                /* define o y inicial do drag */
-                /* dragOfY = e.pageY - dragMe.offsetTop;*/
-                
-                /* adiciona os eventos */
-                addEventListener("mousemove", dragMove);
-                addEventListener("mouseup", dragEnd);
-            }
-                
-            /* ao ser arrastado */
-            function dragMove(e) {
-                /* atualiza a posição do elemento */
-                console.log(dragMe.style.left)
-                str = dragMe.style.left.replace('px','')
-                if(str){
-                     number = Number(str);
-                }else{
-                    number = dragMe.style.left; 
-                }
-               
-                console.log(number);
-                if(number <= 0){
-                    position = (e.pageX - dragOfX);
-                    if( position <= 0 && position >= -835){
-                    dragMe.style.left = position  + 'px';
-                    }
-                }
-               /* dragMe.style.top = (e.pageY - dragOfY) + 'px';*/
-            }
-                
-            /* ao terminar o drag */
-            function dragEnd() {
-                /* remove os eventos */
-                removeEventListener("mousemove", dragMove);
-                removeEventListener("mouseup", dragEnd);
-            }
-    
-/* adiciona o evento que começa o drag */
-dragMe.addEventListener("mousedown", dragStart);
-        </script>
     </section>
+    <script src="public/js/carrousel.js"></script>
 </body>
 </html>

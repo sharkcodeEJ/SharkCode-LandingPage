@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="public/css/main.css">
     <link rel="stylesheet" href="public/css/home.css">
     <link rel="stylesheet" href="public/css/info.css">
+    <link rel="stylesheet" href="public/css/team.css">
     <link rel="stylesheet" href="public/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <title>SharkCode</title>
@@ -96,6 +97,153 @@
                 <h4>“Entregamos projetos com qualidade e pensando sempre na sua experiência”</h4>
             </div>
         </article>
+    </section>
+    <section class="team">
+        <header class= "team-header">
+            <h2>Nosso time</h2>
+        <p>O time da SharkCode é constituído por acadêmicos de Análise e desenvolvimento de sistemas, todos sedentos por conhecimento e apaixonados por tecnologia. Com toda nossa empolgação procuramos trazer resultados satisfatórios ao nossos clientes, por isso estamos em constante evolução profissional procurando sempre alcançar a excelência nos resultados. </p>
+        </header>
+        <article class="team-cards">
+            <div class="scrolable">
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. </p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="public/assets/peapleTest.jpg" alt="">
+                    <h3>Manuela
+                    <span>Art Director</span>
+                    </h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                    <div class="socialmedia">
+                        <a href="#"><img src="public/assets/github.svg" alt="Github"></a>
+                        <a href="#"><img src="public/assets/instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="public/assets/linkedin.svg" alt="Linkedin"></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <script>
+
+            var dragMe = document.querySelector(".scrolable");
+            
+            console.log(dragMe );
+            /* o x inicial do drag*/
+            dragOfX = 0,
+            /* o y inicial do drag */
+            dragOfY = 0;
+
+            /* ao segurar o elemento */
+            function dragStart(e) {
+                /* define o x inicial do drag */
+                dragOfX = e.pageX - dragMe.offsetLeft;
+                /* define o y inicial do drag */
+                /* dragOfY = e.pageY - dragMe.offsetTop;*/
+                
+                /* adiciona os eventos */
+                addEventListener("mousemove", dragMove);
+                addEventListener("mouseup", dragEnd);
+            }
+                
+            /* ao ser arrastado */
+            function dragMove(e) {
+                /* atualiza a posição do elemento */
+                console.log(dragMe.style.left)
+                str = dragMe.style.left.replace('px','')
+                if(str){
+                     number = Number(str);
+                }else{
+                    number = dragMe.style.left; 
+                }
+               
+                console.log(number);
+                if(number <= 0){
+                    position = (e.pageX - dragOfX);
+                    if( position <= 0 && position >= -835){
+                    dragMe.style.left = position  + 'px';
+                    }
+                }
+               /* dragMe.style.top = (e.pageY - dragOfY) + 'px';*/
+            }
+                
+            /* ao terminar o drag */
+            function dragEnd() {
+                /* remove os eventos */
+                removeEventListener("mousemove", dragMove);
+                removeEventListener("mouseup", dragEnd);
+            }
+    
+/* adiciona o evento que começa o drag */
+dragMe.addEventListener("mousedown", dragStart);
+        </script>
     </section>
 </body>
 </html>

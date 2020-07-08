@@ -111,11 +111,10 @@
     background: #FFFFFF;
     /* Sombra Card */
 
-
     box-shadow: 5px 5px 2px rgba(255, 255, 255, 0.45);
     border-radius: 26px;
 }
-.team-cards .card:hover{
+.team-cards .scale{
     transition: transform 1s;
     transform: scale(1.1);
 }

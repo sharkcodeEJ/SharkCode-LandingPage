@@ -225,9 +225,7 @@ async function MoveCards(distance,direction = null){
    
 }
 
-
-
-
+/*incial o arraste dos cards*/
 function handleStartMoveCards(e){
 
     startMovePosition = e.pageX;
@@ -238,7 +236,7 @@ function handleStartMoveCards(e){
 
 
 
-
+/* espera arrastar 20px da posição inicial para movimentar os cards para o lado arrastado finalizando o evento*/
 async function handleDragCards(e){
     movement = (e.pageX - startMovePosition );
     if(movement > 20){
@@ -253,7 +251,7 @@ async function handleDragCards(e){
 
 }
 
-
+/*finaliza o evento de arraste e retoma a animação*/
 function handleEndMoveCards(){
     console.log('FIM do movimento')
     animationInterval.run();

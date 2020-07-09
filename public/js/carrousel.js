@@ -82,17 +82,14 @@ function handlePositionInitialCards(cards){
   cardsExistingInLeftOfCentralCard= centerCardPosition / CardSpace;
 
   InitialPosition = cardsExistingInLeftOfCentralCard * CardSpace
-  console.log((cardsExistingInLeftOfCentralCard));
   /*identificar se é um intero se for */
   InitialPosition = 0;
   /*se não for*/
   InitialPosition = - (cardsExistingInLeftOfCentralCard - parseInt(cardsExistingInLeftOfCentralCard) - 1 ) * CardSpace;
-    console.log(InitialPosition)
 
 
 
 
-    console.log(cards.length);
     cards.forEach((card,position)=>{
      card.style.left = `calc(${CARD_WIDTH * position}px - ${InitialPosition}px  + ${CARD_MARGIN * position}px )`;
     });
@@ -273,7 +270,6 @@ async function handleDragCards(e){
 
 /*finaliza o evento de arraste e retoma a animação*/
 function handleEndMoveCards(){
-    console.log('FIM do movimento')
     animationInterval.run();
     removeEventListener("mousemove",handleDragCards);
     removeEventListener("mouseup",handleEndMoveCards);

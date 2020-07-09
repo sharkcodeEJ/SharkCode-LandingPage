@@ -11,7 +11,7 @@ const CARD_WIDTH = 205;
 const CARD_MARGIN = 56;
 
 /*intervalo da Animação*/
-const TimeAnimationIntervaL = 3000 //3s
+const TimeAnimationIntervaL = 4000 //4s
 
 /*função principal*/
 function main(){
@@ -39,19 +39,19 @@ window.addEventListener('resize', function(){
 const animationInterval = (()=>{
     var AnimationInterval;
 
-
     function run(){
         if(AnimationInterval > 0){
 
             return 0;
         }
         AnimationInterval = setInterval(() => {
-            handleMoveAnimatedCards();
+         handleMoveAnimatedCards();
         }, TimeAnimationIntervaL); 
         return true
        
     }
     function stop(){
+
         clearInterval(AnimationInterval);
         AnimationInterval = 0;
 
@@ -99,15 +99,36 @@ function handlePositionInitialCards(cards){
 
 }
 
-/* movimenta os cards para a esquerda até centralizar o proximo card na tela*/ 
-function handleMoveAnimatedCards(direction = "left"){
-    const  interval = setInterval(function(){ //suaviza a transição do card na tela
+
+/* controla o a utlização das animações, não deixando dois intervalos existirem simultaneamente */
+const MoveCardsAnimation = (()=>{
+    
+    var MovingCards = 0;
+
+    function run(direction){
+        if(MovingCards > 0){
+          stop();
+        }
+        MovingCards = setInterval(function(){ //suaviza a transição do card na tela
             MoveCards(1,direction);
             if(returnCenterCardPosition() == Math.trunc( (window.innerWidth / 2) - CARD_WIDTH/2)){
                 addClassScaleForCenterCard(); //
-                clearInterval(interval)// limpa o intervalo quando o card está no centro da tela
+                clearInterval(MovingCards)// limpa o intervalo quando o card está no centro da tela
             }
-    },5);
+         },5);
+        return true;
+    }
+    function stop(){
+        clearInterval(MovingCards);
+        MovingCards = 0;
+    }
+    return {
+        run,
+    }
+})();
+/* movimenta os cards para a esquerda até centralizar o proximo card na tela*/ 
+ function handleMoveAnimatedCards(direction = "left"){
+    return MoveCardsAnimation.run(direction);
 }
 
 
@@ -157,7 +178,7 @@ function returnCardsLeftDistance(){
 
 
 /* função soma ou subtrai a distancia com a posicição atual dependendo da direção recebida*/
-async function MoveCards(distance,direction = null){
+function MoveCards(distance,direction = null){
 
     /*verifica a direção do movimento*/
     if(distance < 0){
@@ -229,6 +250,7 @@ async function MoveCards(distance,direction = null){
 function handleStartMoveCards(e){
 
     startMovePosition = e.pageX;
+    animationInterval.stop();
     addEventListener("mousemove",handleDragCards);
     addEventListener("mouseup",handleEndMoveCards);
 
@@ -241,11 +263,9 @@ async function handleDragCards(e){
     movement = (e.pageX - startMovePosition );
     if(movement > 20){
     handleMoveAnimatedCards('right');
-    animationInterval.stop();
     handleEndMoveCards();
     }else if( movement < -20){
     handleMoveAnimatedCards('left');
-    animationInterval.stop();
     handleEndMoveCards();
     }
 

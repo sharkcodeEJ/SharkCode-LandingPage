@@ -95,11 +95,9 @@ function handlePositionInitialCards(){
 
   /*identificar se é um intero se for */
   /*se não for*/
-  console.log(CardsInLeftOfCentralCard,cardsMayExistInLeftOfCentralCard)
 
   if(cardsMayExistInLeftOfCentralCard > Math.trunc(CardsInLeftOfCentralCard)){
     InitialPosition = - (centerCardPosition - CardSpace * Math.trunc(CardsInLeftOfCentralCard));
-    console.log(InitialPosition);
   }
   else if(cardsMayExistInLeftOfCentralCard == parseInt(cardsMayExistInLeftOfCentralCard)){
     InitialPosition = 0;
@@ -246,12 +244,12 @@ function MoveCards(distance,direction = null){
             position = direction?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;
             /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
             /*esta caiusando bugs quando os cards não ultrapassam a tela*/
-            console.log( fistCardPosition + CARD_WIDTH, window.innerWidth);
 
             /*Entra caso  o o primerio card estiver pela metade e o ultimo também */
-            if(false &&((lastCardPosition < window.innerWidth && lastCardPosition  + CARD_WIDTH > window.innerWidth)&& fistCardPosition < 0 && fistCardPosition + CARD_WIDTH > 0 )){
-           
-                    //codigo que faça os cards duplicarem e voltarem do outro lado
+            if((lastCardPosition < window.innerWidth && lastCardPosition  + CARD_WIDTH > window.innerWidth)&& fistCardPosition < 0 && fistCardPosition + CARD_WIDTH > 0 ){
+                animationInterval.stop();
+                handlePositionInitialCards();
+                //codigo que faça os cards duplicarem e voltarem do outro lado
 
             // if(cardsLeftDistance[key] == fistCardPosition){
             //     const cloneFistCard = card.cloneNode(true);
@@ -271,7 +269,7 @@ function MoveCards(distance,direction = null){
             }else if( lastCardPosition + CARD_WIDTH <=  window.innerWidth    && fistCardPosition + CARD_WIDTH < 0 && cardsLeftDistance[key] == fistCardPosition ){
                 
 
-                cardsLeftDistance[key] = lastCardPosition  + 261; 
+                cardsLeftDistance[key] = lastCardPosition  + CARD_WIDTH + CARD_MARGIN; 
                 position = cardsLeftDistance[key];
     
                 // var cardClone = screanScroll.getElementsByClassName('clone');
@@ -279,10 +277,11 @@ function MoveCards(distance,direction = null){
                 //     screanScroll.removeChild(cardClone);
                 // }
                 /*enviar o ultimo card para a primeira posição caso o primeiro card estiver entrado  totalmente na tela e ultimo não estiver dentro da tela */
-            }else if (fistCardPosition + CARD_WIDTH >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
-                cardsLeftDistance[key] = fistCardPosition - 261;
+            }else if (fistCardPosition >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
+                cardsLeftDistance[key] = fistCardPosition -  CARD_WIDTH - CARD_MARGIN;
                 position = cardsLeftDistance[key];
             }
+
                 card.style.left = position  + 'px';
         })     
     }

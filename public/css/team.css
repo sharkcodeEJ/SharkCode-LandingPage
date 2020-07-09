@@ -86,7 +86,11 @@
     cursor: -moz-grab;
  
 }
+.team-cards .card{
+    -moz-user-select: none;
+    -webkit-user-select: none;
 
+}
 .team-cards .card{
     position: absolute;
     box-sizing: border-box;
@@ -205,6 +209,7 @@
     grid-column-end: auto;
     gap: 25px;
     cursor: pointer;
+
 }
 
 .team-cards .card  .socialmedia img {
@@ -212,4 +217,7 @@
     height: 20px;
     transition: transform 400ms;
     color: aqua;
+
+    border-radius: unset;
+
 }

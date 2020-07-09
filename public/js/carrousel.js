@@ -83,12 +83,12 @@ function handlePositionInitialCards(cards){
 
   InitialPosition = cardsExistingInLeftOfCentralCard * CardSpace
   /*identificar se é um intero se for */
-  InitialPosition = 0;
   /*se não for*/
+  if(cardsExistingInLeftOfCentralCard == parseInt(cardsExistingInLeftOfCentralCard)){
+    InitialPosition = 0;
+  }else{
   InitialPosition = - (cardsExistingInLeftOfCentralCard - parseInt(cardsExistingInLeftOfCentralCard) - 1 ) * CardSpace;
-
-
-
+  }
 
     cards.forEach((card,position)=>{
      card.style.left = `calc(${CARD_WIDTH * position}px - ${InitialPosition}px  + ${CARD_MARGIN * position}px )`;
@@ -225,8 +225,10 @@ function MoveCards(distance,direction = null){
             position = direction?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;
             /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
             /*esta caiusando bugs quando os cards não ultrapassam a tela*/
-            if(lastCardPosition < window.innerWidth && fistCardPosition > 0 ){
-                position = cardsLeftDistance[key];
+            console.log(fistCardPosition  + CARD_WIDTH,fistCardPosition,0 );
+
+            if(lastCardPosition  < window.innerWidth && fistCardPosition  + CARD_WIDTH> 0 ){
+                return
             }else if( lastCardPosition <=  window.innerWidth  && cardsLeftDistance[key] == fistCardPosition ){
                 cardsLeftDistance[key] = lastCardPosition  + 261; 
                 position = cardsLeftDistance[key];

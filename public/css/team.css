@@ -57,13 +57,6 @@
   
 }
 
-@keyframes carrocel{
-    from{
-        left: 0px;
-    }
-    to{ left: -800px;}
-    
-}
 .scrolable{
     width: fit-content;
     height: 320px;
@@ -220,4 +213,14 @@
 
     border-radius: unset;
 
+}
+
+.team #white-wave {
+    display: block;
+    position: absolute;
+    height: 20vh;
+    background: url(../assets/whitewave.svg) no-repeat bottom;
+    background-size: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
 }

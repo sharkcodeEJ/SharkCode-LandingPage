@@ -1,0 +1,36 @@
+.contact {
+    margin-top: 200px;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.contact .contact-header {
+    background-image: url("../assets/circle_form.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    width: 1293px;
+    height: 1293px;
+    left: -229px;
+}
+
+h2 {
+    font-size: 72px;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 36px;
+    color: #FFFFFF;
+}
+
+.contact-form {
+    position: relative;
+    width: 450px;
+    height: 694px;
+
+    background: #FFFFFF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}

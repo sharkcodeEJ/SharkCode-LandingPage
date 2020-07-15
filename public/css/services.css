@@ -65,12 +65,33 @@
     margin-left: 36px;
 
 }
-.services .product ul li span{
+.services .product ul li  img{
     width: 150px;
     height: 150px;
-    background-color: rgb(116, 116, 116);
 }
 
-.services .product .button{
-    align-self: end;
+.services .product .buttom{
+    margin-top: 188px;
+}
+.services .product .buttom a {
+    width: 275px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+
 }

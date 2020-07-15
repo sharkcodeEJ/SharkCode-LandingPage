@@ -1,0 +1,158 @@
+.contact {
+    position: relative;
+    margin-top: 700px;
+    margin-bottom: 200px;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+.contact .contact-header {
+    width: auto;  
+}
+
+.contact .contact-header #circle-background {
+    display: flex;  
+    flex-direction: column;
+    
+    background-image: url("../assets/circle_form.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    left: 100%;
+    width: 1293px;
+    height: 2300px;
+    
+    justify-content: center; 
+
+    padding-left: 500px;
+}
+
+h2 {
+    font-size: 72px;
+    color: var(--primary-color);
+    margin-top: -23px;
+    margin-bottom: 46px;
+}
+
+h3 {
+    font-size: 36px;
+    color: #FFFFFF;
+}
+
+.contact-form {
+    position: relative;
+    width: auto;
+    height: auto;
+    
+
+    background: #FFFFFF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+    left: -200px;
+}
+
+.contact-form .form-info { 
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    padding: 20px;
+    border: none;
+    margin-top: 40px;
+
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
+
+.contact-form .form-info .field {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: 15px;
+}
+
+.contact-form .form-info .field i {
+    position: relative;
+    margin-left: 15px;
+    margin-top: 10px;
+    top: -7px;
+}
+
+.contact-form .form-info .field input {
+    position: relative;
+    width: 398px;
+    height: 45px;
+    padding-left: 13px;
+
+    border: 0;
+    outline: 0;
+
+    font-size: 18px;
+    color: #8897A1;
+}
+
+hr {
+    width: auto;
+    margin: 0 26px 0 26px;
+    border: 0;
+    border-top: 1.75px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 27px;   
+}
+
+.contact-form .form-info textarea { 
+    width: 420px;
+    height: 250px;
+    padding: 15px;
+    resize: none;
+
+    box-sizing: border-box;
+    border: 1px solid #DBDBDB;
+    outline: 0;
+    border-radius: 15px;
+
+    font-size: 18px;
+    text-align: left;
+    color: #8897A1;
+}
+
+.contact-form .form-info .buttons {
+    width: 100%;
+    max-height: 140px;
+    height: 100%;
+    margin: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form .form-info #resetButton {
+    text-decoration: underline;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(0, 33, 53, 0.5);
+}
+
+.contact-form .form-info #submitButton {
+    width: 188px;
+    height: 50px;
+    margin-left: 12px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFFFFF;
+}

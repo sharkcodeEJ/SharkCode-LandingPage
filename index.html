@@ -217,30 +217,45 @@
     </section>
     <section class="contact">
         <header class="contact-header">
-            <h2>Formulário Para contato</h2>
-            <h3>Conte-nos o que você Imagina e nós tornamos realidade para você.</h3>
-            <div id="circle-background"></div>
+            <div id="circle-background">
+                <h2>Formulário<br> Para contato</h2>
+                <h3>Conte-nos o que você<br> Imagina e nós tornamos<br> realidade para você.</h3>
+            </div>
         </header>
         <form action="" class="contact-form">
-            <fieldset>
+            <fieldset class="form-info">
                 <legend>Sobre Você</legend>
                 <div class="field">
                     <label for="nName"><span></span></label>
                     <input type="text" name="nName" id="iName" placeholder="Nome">
+                    <i>
+                        <img src="./public/assets/user_name.svg" alt="Nome">
+                    </i>
                 </div>
+                <hr>
                 <div class="field">
                     <label for="nEmail"><span></span></label>
                     <input type="text" name="nEmail" id="iEmail" placeholder="E-mail">
+                    <i>
+                        <img src="./public/assets/mail.svg" alt="Nome">
+                    </i>
                 </div>
+                <hr>
                 <div class="field">
                     <label for="nPhone"><span></span></label>
                     <input type="text" name="nPhone" id="iPhone" placeholder="Telefone">
+                    <i>
+                        <img src="./public/assets/phone_form.svg" alt="Nome">
+                    </i>
                 </div>
+                <hr>
                 <div class="textarea">
-                    <textarea name="nText" id="iText" cols="30" rows="10" placeholder="Sua Mensagem aqui"></textarea>
+                    <textarea name="nText" id="iText" cols="30" rows="10" placeholder="Sua Mensagem aqui..."></textarea>
                 </div>
-                <button type="reset">Limpar</button>
-                <button type="submit">Enviar</button>
+                <div class="buttons">
+                    <button type="submit" id="resetButton">Limpar</button>
+                    <button type="submit" id="submitButton">Enviar</button>
+                </div>
             </fieldset>
         </form>
     </section>

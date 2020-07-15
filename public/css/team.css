@@ -64,7 +64,7 @@
     to{ left: -800px;}
     
 }
-.scrolable{
+.scrollbar{
     width: fit-content;
     height: 320px;
     position: relative;

@@ -246,7 +246,7 @@ rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
     padding-bottom: 1vw;
 }
 
-#green-circle {
+.green-circle {
     display: flex;
     justify-content: center;
     background-color: var(--secondary-color);

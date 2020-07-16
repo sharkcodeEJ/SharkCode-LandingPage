@@ -1,0 +1,97 @@
+.services {
+ height: 700px;
+ margin-top : 700px ;
+}
+
+.services .product {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.services .product header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.services .product header h2{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--primary-color);
+
+}
+.services .product header h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: rgba(0, 33, 53, 0.25);
+}
+
+
+.services .product ul{
+    margin-top: 142px;
+    display: flex;
+    list-style: none;
+    flex-wrap: nowrap;
+
+}
+.services .product ul li{
+    margin-right: 36px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.services .product ul li:first-child{
+    margin-left: 36px;
+
+}
+.services .product ul li  img{
+    width: 150px;
+    height: 150px;
+}
+
+.services .product .button{
+    margin-top: 188px;
+}
+.services .product .button a {
+    width: 275px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+
+}

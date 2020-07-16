@@ -1,7 +1,7 @@
 
 
 /* container dos cards*/
-const screanScroll = document.querySelector('.scrolable')
+const screamScroll = document.querySelector('.scrollbar')
 
 
 /*tamanho dos cards*/
@@ -9,13 +9,13 @@ const CARD_WIDTH = 205;
 const CARD_MARGIN = 56;
 
 /*intervalo da Animação*/
-const TimeAnimationIntervaL = 4000 //4s
+const TimeAnimationInterval = 4000 //4s
 /* retorna um array com todos os cards do container*/
  function returnArrayOfCards(){
-        return document.querySelectorAll(".scrolable .card");
+        return document.querySelectorAll(".scrollbar .card");
     }
 
-    /*QUNATIDADE INICIAL DE CARDS */
+    /*QUANTIDADE INICIAL DE CARDS */
 const INITIAL_CARDS = returnArrayOfCards().length;
 
 
@@ -25,11 +25,11 @@ const INITIAL_CARDS = returnArrayOfCards().length;
 /*função principal*/
 function main(){ 
 
-    /*arrray com todos os cards do container*/
+    /*array com todos os cards do container*/
     /* posiciona os cards na tela*/
     handlePositionInitialCards();
-  /* inica a escuta do click na tela de cards*/  
-screanScroll.addEventListener("mousedown", (event)=>{
+  /* inicia a escuta do click na tela de cards*/  
+  screamScroll.addEventListener("mousedown", (event)=>{
         handleStartMoveCards(event);
     });
 /* seta o intervalo da animação nos cards*/
@@ -57,7 +57,7 @@ const animationInterval = (()=>{
         }
         AnimationInterval = setInterval(() => {
          handleMoveAnimatedCards();
-        }, TimeAnimationIntervaL); 
+        }, TimeAnimationInterval); 
         return true
        
     }
@@ -87,13 +87,13 @@ function handlePositionInitialCards(){
     /*tamanho e a margem de cada card*/
     CardSpace = CARD_WIDTH + CARD_MARGIN;
 
-    /*qunatidade de cards que cabem até a posição 0*/
+    /*quantidade de cards que cabem até a posição 0*/
     CardsInLeftOfCentralCard = cards.length/2;
 
    
   cardsMayExistInLeftOfCentralCard= centerCardPosition / CardSpace;
 
-  /*identificar se é um intero se for */
+  /*identificar se é um inteiro se for */
   /*se não for*/
 
   if(cardsMayExistInLeftOfCentralCard > Math.trunc(CardsInLeftOfCentralCard)){
@@ -112,7 +112,7 @@ function handlePositionInitialCards(){
 }
 
 
-/* controla o a utlização das animações, não deixando dois intervalos existirem simultaneamente */
+/* controla o a utilização das animações, não deixando dois intervalos existirem simultaneamente */
 const MoveCardsAnimation = (()=>{
     
     var MovingCards = 0;
@@ -212,7 +212,7 @@ function MoveCards(distance,direction = null){
 /*retornar um array da posição dos cards*/
    let cardsLeftDistance = returnCardsLeftDistance();
  /*retorna o card mais a esquerda (primeiro card)*/
-   const returnfistCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((leftCardPosition,cardLeftDistance,key)=>{
+   const returnFistCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((leftCardPosition,cardLeftDistance,key)=>{
             position = cardLeftDistance;
             if(key == 0){
                 leftCardPosition = position;
@@ -221,12 +221,12 @@ function MoveCards(distance,direction = null){
     },0)
     
 /*retorna o card mais a direita (ultimo card)*/
-    const returnlastCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((RigthCardPosition,cardLeftDistance,key)=>{
+    const returnLastCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((RightCardPosition,cardLeftDistance,key)=>{
         position = cardLeftDistance;
         if(key == 0){
-            RigthCardPosition = position;
+            RightCardPosition = position;
         }
-        return RigthCardPosition >= position ?RigthCardPosition : position; 
+        return RightCardPosition >= position ?RightCardPosition : position; 
     },0)
 
 /* percorre posição a posição até a distancia recebida (necessário pois se a distancia for muito alta pode ocorrer bugs com a troca de posições além
@@ -236,24 +236,24 @@ function MoveCards(distance,direction = null){
         cards.forEach((card,key)=>{ 
             /* atualiza a posição do primeiro e do ultimo */
             cardsLeftDistance = returnCardsLeftDistance();
-            fistCardPosition = returnfistCardPosition(cardsLeftDistance);
-            lastCardPosition = returnlastCardPosition(cardsLeftDistance);
+            fistCardPosition = returnFistCardPosition(cardsLeftDistance);
+            lastCardPosition = returnLastCardPosition(cardsLeftDistance);
     
             /*soma a posição da esquerda com a distancia a ser percorrida - nova posição*/
             
             position = direction?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;
             /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
-            /*esta caiusando bugs quando os cards não ultrapassam a tela*/
+            /*esta causando bugs quando os cards não ultrapassam a tela*/
 
-            /*Entra caso  o o primerio card estiver pela metade e o ultimo também */
+            /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
             if((lastCardPosition < window.innerWidth && lastCardPosition  + CARD_WIDTH > window.innerWidth)&& fistCardPosition < 0 && fistCardPosition + CARD_WIDTH > 0 ){
                 animationInterval.stop();
                 handlePositionInitialCards();
-                //codigo que faça os cards duplicarem e voltarem do outro lado
+                //código que faça os cards duplicarem e voltarem do outro lado
 
             // if(cardsLeftDistance[key] == fistCardPosition){
             //     const cloneFistCard = card.cloneNode(true);
-            //     card.closest('.scrolable').appendChild(cloneFistCard);  
+            //     card.closest('.scrollbar').appendChild(cloneFistCard);  
             //     position = lastCardPosition  + 261; 
             //     cloneFistCard.style.left = position + 'px';
             // }
@@ -272,9 +272,9 @@ function MoveCards(distance,direction = null){
                 cardsLeftDistance[key] = lastCardPosition  + CARD_WIDTH + CARD_MARGIN; 
                 position = cardsLeftDistance[key];
     
-                // var cardClone = screanScroll.getElementsByClassName('clone');
+                // var cardClone = screamScroll.getElementsByClassName('clone');
                 // if(cardClone != null){
-                //     screanScroll.removeChild(cardClone);
+                //     screamScroll.removeChild(cardClone);
                 // }
                 /*enviar o ultimo card para a primeira posição caso o primeiro card estiver entrado  totalmente na tela e ultimo não estiver dentro da tela */
             }else if (fistCardPosition >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
@@ -288,7 +288,7 @@ function MoveCards(distance,direction = null){
    
 }
 
-/*incial o arraste dos cards*/
+/*inicial o arraste dos cards*/
 function handleStartMoveCards(e){
 
     startMovePosition = e.pageX;
@@ -321,5 +321,5 @@ async function handleEndMoveCards(){
     removeEventListener("mouseup", handleEndMoveCards);
 }
 
-/* incial a função principal*/
+/* inicial a função principal*/
 main();

@@ -32,6 +32,9 @@ function main(){
   screamScroll.addEventListener("mousedown", (event)=>{
         handleStartMoveCards(event);
     });
+    screamScroll.addEventListener("touchstart", (event)=>{
+        handleStartMoveCards(event);
+    });
 /* seta o intervalo da animação nos cards*/
     animationInterval.run();
 /*adiciona o efeito de aumento no card central */
@@ -191,7 +194,7 @@ function returnCardsLeftDistance(){
 }
 
 
-/* função soma ou subtrai a distancia com a posicição atual dependendo da direção recebida*/
+/* função soma ou subtrai a distancia com a posição atual dependendo da direção recebida*/
 function MoveCards(distance,direction = null){
     const cards = returnArrayOfCards();
     /*verifica a direção do movimento*/
@@ -230,7 +233,7 @@ function MoveCards(distance,direction = null){
     },0)
 
 /* percorre posição a posição até a distancia recebida (necessário pois se a distancia for muito alta pode ocorrer bugs com a troca de posições além
-    de não ser suave (esse código não suavisa  a tela para suavisar deveria utilizar algum setinterval como na função handleMoveAnimatedCards */
+    de não ser suave (esse código não suaviza  a tela para suavizar deveria utilizar algum setInterval como na função handleMoveAnimatedCards */
     for(current = 1;current <= distance;current++){
  
         cards.forEach((card,key)=>{ 
@@ -245,10 +248,22 @@ function MoveCards(distance,direction = null){
             /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
             /*esta causando bugs quando os cards não ultrapassam a tela*/
 
-            /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
-            if((lastCardPosition < window.innerWidth && lastCardPosition  + CARD_WIDTH > window.innerWidth)&& fistCardPosition < 0 && fistCardPosition + CARD_WIDTH > 0 ){
+               /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
+            if(lastCardPosition + CARD_WIDTH < window.innerWidth  && fistCardPosition + CARD_WIDTH > 0){
                 animationInterval.stop();
                 handlePositionInitialCards();
+                console.log('parei tudo!')
+              return
+            /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
+            }else if(
+                ((lastCardPosition + CARD_WIDTH/2 < window.innerWidth 
+                && lastCardPosition  + CARD_WIDTH > window.innerWidth) 
+                && fistCardPosition + CARD_WIDTH/2 > 0 
+                && fistCardPosition  < 0 )){
+
+                    console.log("entrei");
+                 animationInterval.stop();
+                 handlePositionInitialCards();
                 //código que faça os cards duplicarem e voltarem do outro lado
 
             // if(cardsLeftDistance[key] == fistCardPosition){
@@ -258,14 +273,7 @@ function MoveCards(distance,direction = null){
             //     cloneFistCard.style.left = position + 'px';
             // }
                return
-
-               /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
-            }else if(lastCardPosition + CARD_WIDTH < window.innerWidth  && fistCardPosition + CARD_WIDTH > 0){
-                  animationInterval.stop();
-                  handlePositionInitialCards();
-                return
-
-            /*quando o ultimo card estiver entrando na tela o primeiro se tiever fora da tela irá para a ultima posição */
+            /*quando o ultimo card estiver entrando na tela o primeiro se tiver fora da tela irá para a ultima posição */
             }else if( lastCardPosition + CARD_WIDTH <=  window.innerWidth    && fistCardPosition + CARD_WIDTH < 0 && cardsLeftDistance[key] == fistCardPosition ){
                 
 
@@ -276,7 +284,7 @@ function MoveCards(distance,direction = null){
                 // if(cardClone != null){
                 //     screamScroll.removeChild(cardClone);
                 // }
-                /*enviar o ultimo card para a primeira posição caso o primeiro card estiver entrado  totalmente na tela e ultimo não estiver dentro da tela */
+            /*envia o ultimo card para a primeira posição caso o primeiro card estiver entrado  totalmente na tela e ultimo não estiver dentro da tela */
             }else if (fistCardPosition >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
                 cardsLeftDistance[key] = fistCardPosition -  CARD_WIDTH - CARD_MARGIN;
                 position = cardsLeftDistance[key];
@@ -291,11 +299,13 @@ function MoveCards(distance,direction = null){
 /*inicial o arraste dos cards*/
 function handleStartMoveCards(e){
 
-    startMovePosition = e.pageX;
+    startMovePosition = e.pageX || e.changedTouches[0].pageX; //para touch
     animationInterval.stop();
-
     addEventListener("mousemove",handleDragCards);
+    addEventListener("touchmove",handleDragCards, false);
     addEventListener("mouseup",handleEndMoveCards);
+    addEventListener("touchend", handleEndMoveCards, false);
+ 
 
 }
 
@@ -303,7 +313,9 @@ function handleStartMoveCards(e){
 
 /* espera arrastar 20px da posição inicial para movimentar os cards para o lado arrastado finalizando o evento*/
 async function handleDragCards(e){
-    movement = (e.pageX - startMovePosition );
+    const pageX = e.pageX || e.changedTouches[0].pageX;
+    console.log(e,pageX);
+    movement = (pageX - startMovePosition );
     if(movement > 20){
     handleMoveAnimatedCards('right');
     handleEndMoveCards();
@@ -319,6 +331,11 @@ async function handleEndMoveCards(){
     animationInterval.run();
     removeEventListener("mousemove",  handleDragCards);
     removeEventListener("mouseup", handleEndMoveCards);
+    removeEventListener("touchmove",handleDragCards);
+    removeEventListener("touchend", handleEndMoveCards);
+
+
+    
 }
 
 /* inicial a função principal*/

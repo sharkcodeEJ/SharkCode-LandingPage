@@ -1,5 +1,6 @@
 
 
+
 /* container dos cards*/
 const screamScroll = document.querySelector('.scrollbar')
 
@@ -241,6 +242,7 @@ function MoveCards(distance,direction = null){
             cardsLeftDistance = returnCardsLeftDistance();
             fistCardPosition = returnFistCardPosition(cardsLeftDistance);
             lastCardPosition = returnLastCardPosition(cardsLeftDistance);
+
     
             /*soma a posição da esquerda com a distancia a ser percorrida - nova posição*/
             
@@ -248,38 +250,57 @@ function MoveCards(distance,direction = null){
             /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
             /*esta causando bugs quando os cards não ultrapassam a tela*/
 
+        
+                
+            /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
+            if((INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) > window.innerWidth - 2 *(CARD_MARGIN + CARD_WIDTH/2)
+            && (INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) < window.innerWidth ){
+            
+                //quando arrastado para esquerda estava causando bugs
+                if(direction){
+                    return
+                }
+                //  handlePositionInitialCards();
+                //código que faça os cards duplicarem e voltarem do outro lado
+                if(cardsLeftDistance[key] == fistCardPosition && !direction && !card.classList.contains('cloned')  && cards.length == INITIAL_CARDS){
+                    const cloneFistCard = card.cloneNode(true);
+                    card.closest('.scrollbar').appendChild(cloneFistCard);  
+                    card.classList.add('cloned');
+                    ClonePosition = lastCardPosition + CARD_WIDTH + CARD_MARGIN; 
+                    cloneFistCard.style.left = ClonePosition + 'px';
+                    console.log('entrei e clonei o primeiro');
+                }else if(cardsLeftDistance[key] == lastCardPosition &&  direction && !card.classList.contains('cloned') && cards.length == INITIAL_CARDS){
+                    const cloneFistCard = card.cloneNode(true);
+                    card.closest('.scrollbar').appendChild(cloneFistCard);  
+                    card.classList.add('cloned');
+                    ClonePosition = fistCardPosition  -  CARD_WIDTH - CARD_MARGIN; 
+                    cloneFistCard.style.left = ClonePosition + 'px';
+                    console.log('entrei e clonei o ultimo');
+
+                }
+                if((card.classList.contains('cloned') && cardsLeftDistance[key] == fistCardPosition  && fistCardPosition + CARD_WIDTH < 0)
+                 || (card.classList.contains('cloned') && cardsLeftDistance[key] == lastCardPosition  && lastCardPosition >=  window.innerWidth)){ 
+                        card.parentNode.removeChild(card);
+                        cardsLeftDistance = returnCardsLeftDistance();
+                        console.log('exclui',cardsLeftDistance);
+                        return
+                }
                /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
-            if(lastCardPosition + CARD_WIDTH < window.innerWidth  && fistCardPosition + CARD_WIDTH > 0){
+            }else if(lastCardPosition + CARD_WIDTH + CARD_MARGIN <= window.innerWidth  && fistCardPosition > 0  + CARD_MARGIN){
                 animationInterval.stop();
                 handlePositionInitialCards();
-                console.log('parei tudo!')
-              return
-            /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
-            }else if(
-                ((lastCardPosition + CARD_WIDTH/2 < window.innerWidth 
-                && lastCardPosition  + CARD_WIDTH > window.innerWidth) 
-                && fistCardPosition + CARD_WIDTH/2 > 0 
-                && fistCardPosition  < 0 )){
-
-                    console.log("entrei");
-                 animationInterval.stop();
-                 handlePositionInitialCards();
-                //código que faça os cards duplicarem e voltarem do outro lado
-
-            // if(cardsLeftDistance[key] == fistCardPosition){
-            //     const cloneFistCard = card.cloneNode(true);
-            //     card.closest('.scrollbar').appendChild(cloneFistCard);  
-            //     position = lastCardPosition  + 261; 
-            //     cloneFistCard.style.left = position + 'px';
-            // }
-               return
+                console.log('parei tudo',returnCardsLeftDistance(),cards)
+                return
+            
             /*quando o ultimo card estiver entrando na tela o primeiro se tiver fora da tela irá para a ultima posição */
-            }else if( lastCardPosition + CARD_WIDTH <=  window.innerWidth    && fistCardPosition + CARD_WIDTH < 0 && cardsLeftDistance[key] == fistCardPosition ){
-                
-
+            }else if( cards.length == cardsLeftDistance.length && (lastCardPosition + CARD_WIDTH <=  window.innerWidth    && fistCardPosition + CARD_WIDTH < 0 && cardsLeftDistance[key] == fistCardPosition )){
                 cardsLeftDistance[key] = lastCardPosition  + CARD_WIDTH + CARD_MARGIN; 
                 position = cardsLeftDistance[key];
-    
+                console.log(card,cardsLeftDistance,fistCardPosition,lastCardPosition);
+                console.log('troquei')
+               
+            
+               
                 // var cardClone = screamScroll.getElementsByClassName('clone');
                 // if(cardClone != null){
                 //     screamScroll.removeChild(cardClone);
@@ -288,9 +309,15 @@ function MoveCards(distance,direction = null){
             }else if (fistCardPosition >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
                 cardsLeftDistance[key] = fistCardPosition -  CARD_WIDTH - CARD_MARGIN;
                 position = cardsLeftDistance[key];
+                console.log('não entendi , mas entrei')
             }
 
+
+         
+
+            if(cards.length == cardsLeftDistance.length){
                 card.style.left = position  + 'px';
+            }
         })     
     }
    
@@ -300,6 +327,7 @@ function MoveCards(distance,direction = null){
 function handleStartMoveCards(e){
 
     startMovePosition = e.pageX || e.changedTouches[0].pageX; //para touch
+    console.log(startMovePosition)
     animationInterval.stop();
     addEventListener("mousemove",handleDragCards);
     addEventListener("touchmove",handleDragCards, false);

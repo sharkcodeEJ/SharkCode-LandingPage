@@ -251,12 +251,10 @@ function MoveCards(distance,direction = null){
             /*esta causando bugs quando os cards não ultrapassam a tela*/
 
         
-                console.log(INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN),window.innerWidth - CARD_MARGIN,window.innerWidth + CARD_WIDTH)
           
             /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
             if((INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) > window.innerWidth - CARD_MARGIN
             && (INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) < window.innerWidth + CARD_WIDTH ){
-            console.log('entrando..')
                 //quando arrastado para esquerda estava causando bugs
                 if(direction){
                     return

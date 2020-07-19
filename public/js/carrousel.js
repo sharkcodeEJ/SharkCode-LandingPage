@@ -43,6 +43,12 @@ function main(){
 }
 /* função para identificar quando a tela é modificada*/
 window.addEventListener('resize', function(){
+    cards = returnArrayOfCards();
+    if(cards.length != INITIAL_CARDS){
+        const cardClone = document.querySelector('.clone');
+        const cardCloned = document.querySelector('.cloned')?.classList.remove('cloned');
+        cardClone.parentNode.removeChild(cardClone);
+    }
     animationInterval.stop();
     main() //está função pode ser desnecessária
   });
@@ -195,22 +201,25 @@ function returnCardsLeftDistance(){
 }
 
 
+function returnDirectionMove(direction = null){
+    if(direction == 'right' || direction == true ){
+        return true;
+    }else if (direction == 'left' || direction == false || direction == null){
+       return false;
+    }else{
+        return null;
+    }
+}
+
 /* função soma ou subtrai a distancia com a posição atual dependendo da direção recebida*/
 function MoveCards(distance,direction = null){
     const cards = returnArrayOfCards();
     /*verifica a direção do movimento*/
     if(distance < 0){
         distance = Math.abs(distance);
-        direction = 'left';
-    }else if(direction == null){
-        direction = 'right';
-    }
-    if(direction == 'right' || direction == true){
-        direction = true;
-    }else if (direction == 'left' || direction == false){
-        direction = false;
+        direction = returnDirectionMove('left');
     }else{
-        return false;
+    direction = returnDirectionMove(direction);
     }
 
 /*retornar um array da posição dos cards*/
@@ -245,71 +254,126 @@ function MoveCards(distance,direction = null){
 
     
             /*soma a posição da esquerda com a distancia a ser percorrida - nova posição*/
-            
-            position = direction?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;
-            /*envia o primeiro card para o lado direito se o ultimo card estiver aparecendo na tela ou o primeiro card estiver a mais -250 a esqyerda*/
-            /*esta causando bugs quando os cards não ultrapassam a tela*/
-
-        
-          
+            position = (direction == returnDirectionMove('right'))?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;        
             /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
             if((INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) > window.innerWidth - CARD_MARGIN
-            && (INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) < window.innerWidth + CARD_WIDTH ){
-                //quando arrastado para esquerda estava causando bugs
-                if(direction){
-                    return
-                }
-                //  handlePositionInitialCards();
-                //código que faça os cards duplicarem e voltarem do outro lado
-                if(cardsLeftDistance[key] == fistCardPosition && !direction && !card.classList.contains('cloned')  && cards.length == INITIAL_CARDS){
-                    const cloneFistCard = card.cloneNode(true);
-                    card.closest('.scrollbar').appendChild(cloneFistCard);  
-                    card.classList.add('cloned');
-                    ClonePosition = lastCardPosition + CARD_WIDTH + CARD_MARGIN; 
-                    cloneFistCard.style.left = ClonePosition + 'px';
-                }else if(cardsLeftDistance[key] == lastCardPosition &&  direction && !card.classList.contains('cloned') && cards.length == INITIAL_CARDS){
-                    const cloneFistCard = card.cloneNode(true);
-                    card.closest('.scrollbar').appendChild(cloneFistCard);  
-                    card.classList.add('cloned');
-                    ClonePosition = fistCardPosition  -  CARD_WIDTH - CARD_MARGIN; 
-                    cloneFistCard.style.left = ClonePosition + 'px';
-
-                }
-                if((card.classList.contains('cloned') && cardsLeftDistance[key] == fistCardPosition  && fistCardPosition + CARD_WIDTH < 0)
-                 || (card.classList.contains('cloned') && cardsLeftDistance[key] == lastCardPosition  && lastCardPosition >=  window.innerWidth)){ 
+            && (INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) <  window.innerWidth + CARD_WIDTH){
+                //quando arrastado para esquerda estava causando bugs.
+                const cloned = screamScroll.querySelector('.cloned');
+                const clone = screamScroll.querySelector('.clone');
+               
+                function removeClonedCard(card = null){
+                    if(card !== null && card.classList.contains('cloned')){
                         card.parentNode.removeChild(card);
-                        cardsLeftDistance = returnCardsLeftDistance();
-                        return
+                        document.querySelector('.clone')?.classList.remove('clone');
+                        return true;
+                    }else{
+                        return false;
+                    }
+                  
                 }
+
+                function cloneCardsIn(position = '',card,previousCardPosition){
+                    position = String(position);
+                    let formula = null;
+                    if(position == 'end'){ 
+                         formula =  CARD_WIDTH + CARD_MARGIN; 
+                    }
+                    if(position == 'start'){
+                         formula = -(CARD_WIDTH) - CARD_MARGIN; 
+                    }
+                
+                    if(formula == null){
+                         console.log(formula,position)
+                        return false;
+                    }
+                    const cloneFistCard = card.cloneNode(true);
+                    card.closest('.scrollbar').appendChild(cloneFistCard);  
+                    card.classList.add('cloned');
+                    cloneFistCard.classList.add('clone');
+                    const  ClonePosition = previousCardPosition + formula;
+                    cloneFistCard.style.left = ClonePosition + 'px';
+                
+                    return true;
+                }
+
+                function HasConflictCardsClonesForDirection(direction){
+                    if(direction == returnDirectionMove('right')){
+                        if(clone != null && clone.offsetLeft > window.innerWidth - CARD_WIDTH){
+                            return true;
+                        }
+                        return false;
+                    }else if(direction == returnDirectionMove('left')){
+                        if(clone != null && clone.offsetLeft < 0 + CARD_WIDTH){
+                            return true;
+                        }
+                        return false;
+                    }else{
+                        return undefined;
+                    }
+                
+                }
+
+                function removeCloneCardsAndClonedClass(clone,cloned){
+               
+                    if(cloned !== null && clone !== null){
+                        clone.remove();
+                        cloned.classList.remove('cloned');
+                        console.log('exclui o ultimo')
+                        return true;
+                    }else{
+                        return false;
+                    }
+                 
+                }
+
+                let permittedAction = true;
+                if(direction == returnDirectionMove('right')){
+                    if(HasConflictCardsClonesForDirection(direction)){
+                            if(clone.offsetLeft > window.innerWidth){
+                                removeCloneCardsAndClonedClass(clone,cloned);
+                            }else{
+                                permittedAction = false;
+                            }
+                    }
+                    if(permittedAction && cardsLeftDistance[key] == lastCardPosition && direction && !card.classList.contains('cloned')){
+                        cloneCardsIn('start',card,fistCardPosition);
+                    }
+                    if(permittedAction  && (cardsLeftDistance[key] == lastCardPosition  && lastCardPosition >=  window.innerWidth)){
+                        removeClonedCard(card);
+                    }
+                }else{
+                    if(HasConflictCardsClonesForDirection(direction)){
+                        if(clone.offsetLeft < - CARD_WIDTH){
+                            removeCloneCardsAndClonedClass(clone,cloned);
+                        }else{
+                            permittedAction = false;
+                        }
+                    }
+                    //código que faça os cards duplicarem e voltarem do outro lado
+                    if(permittedAction  && cardsLeftDistance[key] == fistCardPosition && !direction && !card.classList.contains('cloned')){
+                         //duplica o ultimo card e envia para primeira posição 
+                        cloneCardsIn('end',card,lastCardPosition);
+                    }
+                    //remove o card caso o seja o primeiro e ela esteja fora da tela
+                    if(permittedAction  && (cardsLeftDistance[key] == fistCardPosition  && fistCardPosition + CARD_WIDTH < 0)){
+                        removeClonedCard(card);
+                    }
+                }   
                /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
             }else if(INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN) <= window.innerWidth){
-                if(cardsLeftDistance.length != INITIAL_CARDS){
-                    const cardCloned = document.querySelector('.cloned');
-                    cardCloned.parentNode.removeChild(cardCloned);
-                }
                 animationInterval.stop();
                 handlePositionInitialCards();
-                return
-            
+                return;
             /*quando o ultimo card estiver entrando na tela o primeiro se tiver fora da tela irá para a ultima posição */
             }else if( cards.length == cardsLeftDistance.length && (lastCardPosition + CARD_WIDTH <=  window.innerWidth    && fistCardPosition + CARD_WIDTH < 0 && cardsLeftDistance[key] == fistCardPosition )){
                 cardsLeftDistance[key] = lastCardPosition  + CARD_WIDTH + CARD_MARGIN; 
                 position = cardsLeftDistance[key];
-               
-            
-               
-                // var cardClone = screamScroll.getElementsByClassName('clone');
-                // if(cardClone != null){
-                //     screamScroll.removeChild(cardClone);
-                // }
             /*envia o ultimo card para a primeira posição caso o primeiro card estiver entrado  totalmente na tela e ultimo não estiver dentro da tela */
             }else if (fistCardPosition >= 0 && lastCardPosition >=  window.innerWidth && cardsLeftDistance[key] == lastCardPosition){
                 cardsLeftDistance[key] = fistCardPosition -  CARD_WIDTH - CARD_MARGIN;
                 position = cardsLeftDistance[key];
             }
-
-
-         
 
             if(cards.length == cardsLeftDistance.length){
                 card.style.left = position  + 'px';
@@ -319,11 +383,12 @@ function MoveCards(distance,direction = null){
    
 }
 
+
+
 /*inicial o arraste dos cards*/
 function handleStartMoveCards(e){
 
     startMovePosition = e.pageX || e.changedTouches[0].pageX; //para touch
-    console.log(startMovePosition)
     animationInterval.stop();
     addEventListener("mousemove",handleDragCards);
     addEventListener("touchmove",handleDragCards, false);
@@ -338,7 +403,6 @@ function handleStartMoveCards(e){
 /* espera arrastar 20px da posição inicial para movimentar os cards para o lado arrastado finalizando o evento*/
 async function handleDragCards(e){
     const pageX = e.pageX || e.changedTouches[0].pageX;
-    console.log(e,pageX);
     movement = (pageX - startMovePosition );
     if(movement > 20){
     handleMoveAnimatedCards('right');

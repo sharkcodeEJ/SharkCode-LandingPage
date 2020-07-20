@@ -99,6 +99,7 @@ h3 {
 
     font-size: 18px;
     color: #8897A1;
+    font-family: Raleway;
 }
 
 hr {
@@ -122,6 +123,7 @@ hr {
     outline: 0;
     border-radius: 15px;
 
+    font-family: Raleway;
     font-size: 18px;
     text-align: left;
     color: #8897A1;

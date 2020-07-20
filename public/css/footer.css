@@ -1,0 +1,66 @@
+footer .footer-background {
+  display: block;
+  position: sticky;
+  margin-top: 50px;
+  height: 20vh;
+  background: url(../assets/leftWave_footer.svg) no-repeat, url(../assets/rightWave_footer.svg) no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+
+footer .teste {
+  background-color: var(--primary-color);
+}
+
+footer .content {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  height: 480px;
+  background-color: var(--primary-color);
+}
+
+footer .content .info {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 0 58px 150px;
+}
+
+footer .content .info .description {
+  display: flex;
+  flex-direction: column;
+
+  font-family: Raleway;
+  color: #F2F2F2;
+}
+
+footer .content .info hr { 
+  width: 25px;
+  background-color: #F2F2F2;
+  transform: rotate(90deg);
+}
+
+footer .content .info .description h5 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+footer .content .info .description p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+footer .content .socialmedia {
+  display: grid;
+  grid-template-columns: 0fr;
+  gap: 25px;
+}
+
+.socialmedia a {
+  cursor: initial;
+}

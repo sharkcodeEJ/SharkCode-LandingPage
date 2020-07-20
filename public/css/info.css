@@ -7,7 +7,8 @@
 .we-are-screen {
     position: relative;
     display: flex;
-    background: url(../assets/fading.svg) no-repeat center center, url(../assets/office.svg) no-repeat center center;
+    /*possibilidade implementar background-color em vez de um svg*/
+    background: url(../assets/images/background-we-are-screen/fading.svg) no-repeat center center, url(../assets/images/background-we-are-screen/x0-75.jpg) no-repeat center center;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -23,43 +24,14 @@
     max-width: 900px;
     width: 80%;
     filter: opacity(95%);
-}
 
-/* navbar */
-
-nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    padding: 18px 25px 18px 25px;
-    background-color: var(--primary-color);
-    max-width: 700px;
-    border-radius: 0 0 60px 60px;
-    z-index: 10;
-}
-
-nav a{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+    font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    transition: 200ms ease-in-out;
+    font-size: 72px;
+    line-height: 85px;
+    text-align: center;
 }
 
-nav a:hover {
-    transform: scale(1.1);
-}
-
-nav img {
-    width: 27px;
-    margin-right: 22px;
-}
 /* about us screen */
 .about-us-screen-image::before {
     content: "";
@@ -90,7 +62,7 @@ rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
     max-width: 1400px;
     margin: 0 auto; */ 
 
-    background-image: url("../assets/background-about-us.svg");
+    background-image: url("../assets/images/background-about-us/x0-75.jpg");
     background-size: 100%;
     z-index: -1;
 
@@ -140,27 +112,31 @@ rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
 }
 .about-us-screen-image img {
     z-index: 2;
+    border-radius: 0px 2000px 2000px 0px;
 }
-.rigth-conteiner {
+.about-us-screen-image .right-container img {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.right-container {
     padding-left: 5%;
     display: flex;
     align-items: flex-start;
 
 }
-.rigth-conteiner .content{
+.right-container .content{
     display: flex;
     flex-direction: column;
 }
-.rigth-conteiner .content .description{
+.right-container .content .description{
     display: flex;
     position: relative;
     right: -35px;
 }
-.rigth-conteiner .content .description .arrow-left{
+.right-container .content .description .arrow-left{
     flex-grow: 1;
 }
 .arrow-left{
-    background-image: url('/public/assets/Arrow-left.svg');
+    background-image: url('/public/assets/icons/Arrow-left.svg');/*2,4kb*/
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -169,7 +145,7 @@ rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
     margin-left: 24px;
 }
 .arrow-right{
-    background-image: url('/public/assets/Arrow-right.svg');
+    background-image: url('/public/assets/icons/Arrow-right.svg');/*2,4kb*/
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
@@ -209,7 +185,7 @@ rgba(0, 33, 53, 0.95) 100%), rgba(0, 33, 53, 0.53);
     align-items: center;
     justify-content: space-evenly;
     height: 100vh;
-    background: url(../assets/fading2.svg) no-repeat center center, url(../assets/office2.svg) no-repeat center center;
+    background: url(../assets/images/background-pillars-screen/fading2.svg) no-repeat center center, url(../assets/images/background-pillars-screen/x0-75.jpg) no-repeat center center;
     background-size: cover;
     color: white;
     overflow: hidden;

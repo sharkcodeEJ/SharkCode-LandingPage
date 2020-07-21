@@ -1,0 +1,383 @@
+@media (min-width: 1280px) {
+    #footer {
+        background-size: 100vw;
+    }
+}
+
+@media (max-height: 400px) {
+    #footer {
+        background-size: 100%;
+    }
+
+    .team {
+        display: none;
+    }
+
+    #white-wave {
+        display: none;
+    }
+
+    #division2 {
+        display: none;
+    }
+}
+
+@media (max-height: 200px) {
+    .we-are-screen h2{
+        display: none;
+    }
+}
+
+@media (max-width: 1280px) {
+    .second-screen {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pillars {
+        width: 90%;
+    }
+
+    .pillars > * {
+        margin-top: 5vw;
+    }
+
+    .pillars h3 {
+        margin: 0 auto;
+        text-transform: uppercase;
+    } 
+
+    #quote {
+        display: none;
+    }
+
+    #quote h4 {
+        font-size: 200%;
+        font-weight: bold;
+        line-height: 6.5vh;
+        padding: 3.5vw;
+        border: 2.4px white solid;
+    }
+
+    .we-are-screen h2{
+        max-width: 700px;
+        font-size: 60px;
+    }
+
+    .about-us-screen span {
+        display: none;
+    }
+
+    .right-container .description h3{
+        font-size: 47px;
+        margin-bottom: 20px;
+    }
+
+    .team-header {
+        max-width: 800px;
+    }
+
+    .team-header h2 {
+        font-size: 50px;
+    }
+
+    .team-header p {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 800px) {
+    .headline h1 {
+        font-size: 40px;
+    }
+    
+    nav {
+        max-width: 520px;
+        padding: 18px 25px 18px 25px;
+        border-radius: 0 0 40px 40px;
+    }
+
+    nav img {
+        width: 22px;
+        margin-right: 16px;
+    }
+
+    #info .first-screen h2 {
+        font-size: 40px;
+    }
+
+    #division {
+        height: 3vh;
+    }
+
+    .we-are-screen h2{
+        max-width: 600px;
+        font-size: 50px;
+    }
+
+    .about-us-screen img {
+        display: none;
+    }
+
+    .about-us-screen{
+        height: 100vh;
+        text-align: justify;
+    }
+
+    .right-container {
+        margin: auto auto 25px auto;
+    }
+
+    .right-container .description {
+        width: 70%;
+    }
+
+    .right-container .description h3 {
+        font-size: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .left-container{
+        display: block;
+    }
+
+    .left-container .description {
+        width: 70%;
+    }
+
+    .team-header {
+        display: block;
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .team-header h2 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    #page-home .content article {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #page-home .content {
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 10vh;
+    }
+
+    .headline {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .headline h1 {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 55px;
+        font-size: 45px;
+    }
+
+    .headline p {
+        display: none;
+    }
+
+    #page-home .content main {
+        display: block;
+        align-items: center;
+        width: 100%;
+    }
+
+    .socialmedia {
+        margin-top: 85px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .socialmedia > * {
+        align-self: center;
+        margin: 0 -10%;
+    }
+
+    .we-are-screen h2{
+        max-width: 400px;
+        width: 90%;
+        font-size: 40px;
+    }
+
+    nav {
+        max-width: 250px;
+        padding: 20px 20px 20px 20px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    nav a{
+        font-size: 14px;
+    }
+
+    nav img {
+        display: none;
+    }
+
+    #info .first-screen h2 {
+        font-size: 35px;
+        max-width: 300px;
+    }
+
+    .pillars > * {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        align-items: center;
+        margin: 5vw auto 0 auto;
+        width: 100%;
+    }
+
+    .pillars h3 {
+        font-size: 40px;
+    }
+
+    .green-circle {
+        margin: 1vh auto 1vh auto;
+    }
+
+    .right-container .description {
+        max-width: 450px;
+        width: 90%;
+    }
+
+    .right-container .description h3 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .left-container .description {
+        max-width: 450px;
+        width: 90%;
+    }
+
+    .about-us-screen p {
+        font-size: 95%;
+    }
+
+    .team-header {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 420px) {
+    .socialmedia {
+        margin-top: 90px;
+    }
+
+    .we-are-screen h2{
+        font-size: 30px;
+    }
+
+    .pillars h3 {
+        font-size: 35px;
+    }
+
+    .pillars > * {
+        margin: 5vw auto 0 auto;
+        gap: 10px;
+    }
+
+    .green-circle {
+        transform: scale(0.9);
+        margin: 1vh auto 0 auto;
+    }
+    
+    .right-container .description {
+        max-width: 320px;
+    }
+
+    .right-container .description h3 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .left-container .description {
+        max-width: 320px;
+    }
+
+    .team-header {
+        margin-bottom: 10px;
+    }
+
+    .team-header h2 {
+        font-size: 40px;
+        margin: auto 0 20px 0;
+    }
+
+    .team-header p {
+        font-size: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .headline h1 {
+        font-size: 40px;
+    }
+
+    .socialmedia {
+        margin-top: 85px;
+    }
+
+    #division {
+        display: none;
+    }
+
+    #info .first-screen h2 {
+        font-size: 30px;
+    }
+
+    .pillars > * {
+        margin: 0 auto 0 auto;
+    }
+
+    .pillars h3 {
+        font-size: 30px;
+    }
+
+    .green-circle {
+        transform: scale(0.8);
+    }
+
+    .about-us-screen p{
+        font-size: 80%;
+        line-height: 20px;
+    }
+
+    .team-header {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 320px) {
+    .pillars > * {
+        margin-top: 7vh;
+    }
+
+    .green-circle {
+        display: none;
+    }
+
+    .team-header h2 {
+        font-size: 25px;
+        margin: auto 0 10px 0;
+    }
+
+    .team-header p {
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+}

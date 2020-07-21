@@ -161,15 +161,14 @@
 }
 
 @media (max-width: 600px) {
-    #page-home .content article {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
     #page-home .content {
         margin: 0 auto;
         text-align: center;
         margin-bottom: 10vh;
+    }
+
+    #page-home .content article {
+        display: block;
     }
 
     .headline {
@@ -188,14 +187,9 @@
         display: none;
     }
 
-    #page-home .content main {
-        display: block;
-        align-items: center;
-        width: 100%;
-    }
-
     .socialmedia {
-        margin-top: 85px;
+        text-align: center;
+        margin: 85px auto 0 auto;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -203,7 +197,7 @@
 
     .socialmedia > * {
         align-self: center;
-        margin: 0 -10%;
+        margin: 0 -25vw;
     }
 
     .we-are-screen h2{
@@ -324,6 +318,10 @@
 }
 
 @media (max-width: 360px) {
+    .headline {
+        max-width: 285px;
+    }
+
     .headline h1 {
         font-size: 40px;
     }

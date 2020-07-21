@@ -6,7 +6,7 @@
 
 .we-are-screen {
     display: flex;
-    background: url(../assets/images/background-we-are-screen/fading.svg) no-repeat center top, url(../assets/images/background-we-are-screen/x1.jpg) no-repeat center center;
+    background: url(../assets/images/background-we-are-screen/fading.svg) no-repeat center top, url(../assets/images/background-we-are-screen/x1.jpg) no-repeat left center;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,7 @@
     background: url(../assets/images/background-about-us/fading2.svg) no-repeat center center, url(../assets/images/background-about-us/x1.jpg) no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    margin-top: -0.8px;
 }
 
 .about-us-screen p{

@@ -196,7 +196,6 @@ function returnCardsLeftDistance(){
    cards.forEach((card,key)=>{
       cardsLeftDistance[key] = card.offsetLeft; 
     })
-    console.log('1',cardsLeftDistance)
 
     return cardsLeftDistance;
 }
@@ -273,18 +272,16 @@ function MoveCards(distance,direction = null){
                   
                 }
 
-                function cloneCardsIn(position = '',card,previousCardPosition){
-                    position = String(position);
+                function cloneCardsIn(direct = '',card,previousCardPosition){
                     let formula = null;
-                    if(position == 'end'){ 
+                    if(direct == 'end'){ 
                          formula =  CARD_WIDTH + CARD_MARGIN; 
                     }
-                    if(position == 'start'){
+                    if(direct == 'start'){
                          formula = -(CARD_WIDTH) - CARD_MARGIN; 
                     }
                 
                     if(formula == null){
-                         console.log(formula,position)
                         return false;
                     }
                     const cloneFistCard = card.cloneNode(true);
@@ -319,7 +316,6 @@ function MoveCards(distance,direction = null){
                     if(cloned !== null && clone !== null){
                         clone.remove();
                         cloned.classList.remove('cloned');
-                        console.log('exclui o ultimo')
                         return true;
                     }else{
                         return false;
@@ -338,12 +334,10 @@ function MoveCards(distance,direction = null){
                     }
                     if(permittedAction && cardsLeftDistance[key] == lastCardPosition && direction && !card.classList.contains('cloned')){
                         cloneCardsIn('start',card,fistCardPosition);
-                        console.log('cloneCardsIn','start');
 
                     }
                     if(permittedAction  && (cardsLeftDistance[key] == lastCardPosition  && lastCardPosition >=  window.innerWidth)){
                         removeClonedCard(card);
-                        console.log('removeClonedCard')
 
                     }
                 }else{
@@ -358,17 +352,14 @@ function MoveCards(distance,direction = null){
                     if(permittedAction  && cardsLeftDistance[key] == fistCardPosition && !direction && !card.classList.contains('cloned')){
                          //duplica o ultimo card e envia para primeira posição 
                         cloneCardsIn('end',card,lastCardPosition);
-                        console.log('cloneCardsIn','end');
 
                     }
                     //remove o card caso o seja o primeiro e ela esteja fora da tela
                     if(permittedAction  && (cardsLeftDistance[key] == fistCardPosition  && fistCardPosition + CARD_WIDTH < 0)){
-                        console.log('removeClonedCard')
 
                         removeClonedCard(card);
                     }
-                    console.log(key,position,cardsLeftDistance[key],card.style.left)
-                    console.log(cardsLeftDistance,'\n')
+                  
                 }   
                /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
             }else if(INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN) <= window.innerWidth){

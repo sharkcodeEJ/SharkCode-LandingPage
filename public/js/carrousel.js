@@ -1,3 +1,16 @@
+
+/*arquivos Css para serem unidos pelo webpack*/
+require('../css/main.css');
+require('../css/home.css');
+require('../css/info.css');
+require('../css/team.css');
+require('../css/services.css');
+require('../css/contact.css');
+require('../css/footer.css');
+require('../css/responsive.css');
+
+
+
 /* container dos cards*/
 const screamScroll = document.querySelector('.scrollbar')
 
@@ -37,7 +50,7 @@ function main(){
 }
 /* função para identificar quando a tela é modificada*/
 window.addEventListener('resize', function(){
-    cards = returnArrayOfCards();
+   const  cards = returnArrayOfCards();
     if(cards.length != INITIAL_CARDS){
         const cardClone = document.querySelector('.clone');
         const cardCloned = document.querySelector('.cloned')?.classList.remove('cloned');
@@ -81,30 +94,30 @@ const animationInterval = (()=>{
 /*posiciona os cards na tela*/
 function handlePositionInitialCards(){
     const cards = returnArrayOfCards();
-    centerCardPosition = Math.trunc( (window.innerWidth / 2) - CARD_WIDTH/2);
+    const centerCardPosition = Math.trunc( (window.innerWidth / 2) - CARD_WIDTH/2);
 
     /*quantidade de cards*/
 
 
     /*tamanho e a margem de cada card*/
-    CardSpace = CARD_WIDTH + CARD_MARGIN;
+    const CardSpace = CARD_WIDTH + CARD_MARGIN;
 
     /*quantidade de cards que cabem até a posição 0*/
-    CardsInLeftOfCentralCard = cards.length/2;
+    const CardsInLeftOfCentralCard = cards.length/2;
 
    
-  cardsMayExistInLeftOfCentralCard= centerCardPosition / CardSpace;
+  const cardsMayExistInLeftOfCentralCard= centerCardPosition / CardSpace;
 
   /*identificar se é um inteiro se for */
   /*se não for*/
-
+  let InitialPosition = 0
   if(cardsMayExistInLeftOfCentralCard > Math.trunc(CardsInLeftOfCentralCard)){
-    InitialPosition = - (centerCardPosition - CardSpace * Math.trunc(CardsInLeftOfCentralCard));
+     InitialPosition = - (centerCardPosition - CardSpace * Math.trunc(CardsInLeftOfCentralCard));
   }
   else if(cardsMayExistInLeftOfCentralCard == parseInt(cardsMayExistInLeftOfCentralCard)){
-    InitialPosition = 0;
+     InitialPosition = 0;
   }else{
-  InitialPosition = - (cardsMayExistInLeftOfCentralCard - parseInt(cardsMayExistInLeftOfCentralCard) - 1 ) * CardSpace;
+   InitialPosition = - (cardsMayExistInLeftOfCentralCard - parseInt(cardsMayExistInLeftOfCentralCard) - 1 ) * CardSpace;
   }
 
     cards.forEach((card,position)=>{
@@ -183,6 +196,8 @@ function returnCardsLeftDistance(){
    cards.forEach((card,key)=>{
       cardsLeftDistance[key] = card.offsetLeft; 
     })
+    console.log('1',cardsLeftDistance)
+
     return cardsLeftDistance;
 }
 
@@ -212,7 +227,7 @@ function MoveCards(distance,direction = null){
    let cardsLeftDistance = returnCardsLeftDistance();
  /*retorna o card mais a esquerda (primeiro card)*/
    const returnFistCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((leftCardPosition,cardLeftDistance,key)=>{
-            position = cardLeftDistance;
+           let  position = cardLeftDistance;
             if(key == 0){
                 leftCardPosition = position;
             }
@@ -221,7 +236,7 @@ function MoveCards(distance,direction = null){
     
 /*retorna o card mais a direita (ultimo card)*/
     const returnLastCardPosition = (cardsLeftDistance) => cardsLeftDistance.reduce((RightCardPosition,cardLeftDistance,key)=>{
-        position = cardLeftDistance;
+        let position = cardLeftDistance;
         if(key == 0){
             RightCardPosition = position;
         }
@@ -230,24 +245,23 @@ function MoveCards(distance,direction = null){
 
 /* percorre posição a posição até a distancia recebida (necessário pois se a distancia for muito alta pode ocorrer bugs com a troca de posições além
     de não ser suave (esse código não suaviza  a tela para suavizar deveria utilizar algum setInterval como na função handleMoveAnimatedCards */
-    for(current = 1;current <= distance;current++){
+    for(let current = 1;current <= distance;current++){
  
         cards.forEach((card,key)=>{ 
             /* atualiza a posição do primeiro e do ultimo */
-            cardsLeftDistance = returnCardsLeftDistance();
-            fistCardPosition = returnFistCardPosition(cardsLeftDistance);
-            lastCardPosition = returnLastCardPosition(cardsLeftDistance);
+             cardsLeftDistance = returnCardsLeftDistance();
+            let fistCardPosition = returnFistCardPosition(cardsLeftDistance);
+            let lastCardPosition = returnLastCardPosition(cardsLeftDistance);
 
     
             /*soma a posição da esquerda com a distancia a ser percorrida - nova posição*/
-            position = (direction == returnDirectionMove('right'))?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;        
+            let position = (direction == returnDirectionMove('right'))?cardsLeftDistance[key] + current:cardsLeftDistance[key] - current;        
             /*Entra caso  o o primeiro card estiver pela metade e o ultimo também */
             if((INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) > window.innerWidth - CARD_MARGIN
             && (INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN)) <  window.innerWidth + CARD_WIDTH){
                 //quando arrastado para esquerda estava causando bugs.
                 const cloned = screamScroll.querySelector('.cloned');
                 const clone = screamScroll.querySelector('.clone');
-               
                 function removeClonedCard(card = null){
                     if(card !== null && card.classList.contains('cloned')){
                         card.parentNode.removeChild(card);
@@ -324,9 +338,13 @@ function MoveCards(distance,direction = null){
                     }
                     if(permittedAction && cardsLeftDistance[key] == lastCardPosition && direction && !card.classList.contains('cloned')){
                         cloneCardsIn('start',card,fistCardPosition);
+                        console.log('cloneCardsIn','start');
+
                     }
                     if(permittedAction  && (cardsLeftDistance[key] == lastCardPosition  && lastCardPosition >=  window.innerWidth)){
                         removeClonedCard(card);
+                        console.log('removeClonedCard')
+
                     }
                 }else{
                     if(HasConflictCardsClonesForDirection(direction)){
@@ -340,11 +358,17 @@ function MoveCards(distance,direction = null){
                     if(permittedAction  && cardsLeftDistance[key] == fistCardPosition && !direction && !card.classList.contains('cloned')){
                          //duplica o ultimo card e envia para primeira posição 
                         cloneCardsIn('end',card,lastCardPosition);
+                        console.log('cloneCardsIn','end');
+
                     }
                     //remove o card caso o seja o primeiro e ela esteja fora da tela
                     if(permittedAction  && (cardsLeftDistance[key] == fistCardPosition  && fistCardPosition + CARD_WIDTH < 0)){
+                        console.log('removeClonedCard')
+
                         removeClonedCard(card);
                     }
+                    console.log(key,position,cardsLeftDistance[key],card.style.left)
+                    console.log(cardsLeftDistance,'\n')
                 }   
                /*Quando a tela é superior ao tamanho dos cards eles são centralizados*/
             }else if(INITIAL_CARDS *(CARD_WIDTH + CARD_MARGIN) <= window.innerWidth){
@@ -370,8 +394,9 @@ function MoveCards(distance,direction = null){
 
 
 /*inicial o arraste dos cards*/
+let startMovePosition = null;
 function handleStartMoveCards(e){
-    startMovePosition = e.pageX || e.changedTouches[0].pageX; //para touch
+     startMovePosition = e.pageX || e.changedTouches[0].pageX; //para touch
     animationInterval.stop();
     addEventListener("mousemove",handleDragCards);
     addEventListener("touchmove",handleDragCards, false);
@@ -382,7 +407,7 @@ function handleStartMoveCards(e){
 /* espera arrastar 20px da posição inicial para movimentar os cards para o lado arrastado finalizando o evento*/
 async function handleDragCards(e){
     const pageX = e.pageX || e.changedTouches[0].pageX;
-    movement = (pageX - startMovePosition );
+    const movement = (pageX - startMovePosition );
     if(movement > 20){
     handleMoveAnimatedCards('right');
     handleEndMoveCards();

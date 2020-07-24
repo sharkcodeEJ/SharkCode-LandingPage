@@ -21,7 +21,15 @@ a {
     outline: none;
 }
 
- ::-webkit-scrollbar-track {
+h2 {
+    color:white;
+}
+
+h3 {
+    color: white;
+}
+/* ::-webkit-scrollbar-track {
+=======
     background-color: var(--primary-color);
 }
 ::-webkit-scrollbar {
@@ -44,8 +52,8 @@ nav {
     margin: -4px auto 0 auto;
     padding: 18px 15px 18px 15px;
     background-color: var(--primary-color);
-    max-width: 700px;
-    border-radius: 0 0 60px 60px;
+    max-width: 600px;
+    border-radius: 0 0 40px 40px;
     z-index: 10;
 }
 
@@ -57,7 +65,7 @@ nav a{
     color: white;
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     transition: 200ms ease-in-out;
 }
 
@@ -66,8 +74,8 @@ nav a:hover {
 }
 
 nav img {
-    width: 27px;
-    margin-right: 22px;
+    height: 20px;
+    margin-right: 10px;
 }
 
 /*internet explorer scroll*/

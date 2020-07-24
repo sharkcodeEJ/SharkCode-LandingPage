@@ -15,18 +15,15 @@ footer .teste {
 footer .content {
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
-
   height: 480px;
   background-color: var(--primary-color);
+  padding: 0px 100px;
 }
 
 footer .content .info {
   display: flex;
   align-items: flex-end;
-  margin: 0 0 58px 150px;
+  padding-bottom: 40px;
 }
 
 footer .content .info .description {

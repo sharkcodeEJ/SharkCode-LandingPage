@@ -34,6 +34,8 @@
     background: url(../assets/images/background-about-us/fading2.svg) no-repeat center center, url(../assets/images/background-about-us/x0-75.jpg) no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    padding-bottom: 2px;
+    margin-bottom: -2px;
 }
 
 .about-us-screen p{

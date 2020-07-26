@@ -59,7 +59,8 @@
 
 .services .product ul li img {
     width: 150px;
-    height: 150px;
+    height: 100px;
+    margin-bottom: 20px;
 }
 
 .services .product .button {

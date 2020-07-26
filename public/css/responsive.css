@@ -91,6 +91,7 @@
         max-width: 520px;
         padding: 18px 25px 18px 25px;
         border-radius: 0 0 40px 40px;
+        margin-top: -4px;
     }
 
     nav img {
@@ -287,6 +288,14 @@
     .about-us-screen p {
         font-size: 95%;
         margin: 0 auto;
+    }
+
+    .right-container .description {
+        width: 90%;
+    }
+
+    .left-container .description {
+        width: 90%;
     }
 
     .team-header p {

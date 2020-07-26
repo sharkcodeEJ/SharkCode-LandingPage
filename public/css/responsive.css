@@ -9,16 +9,12 @@
         background-size: 100%;
     }
 
-    .team {
-        display: none;
-    }
-
-    #white-wave {
-        display: none;
-    }
-
     #division2 {
         display: none;
+    }
+
+    footer .footer-background {
+        margin-bottom: 0;
     }
 }
 
@@ -43,7 +39,6 @@
     }
 
     .pillars h3 {
-        margin: 0 auto;
         text-transform: uppercase;
     } 
 
@@ -73,24 +68,34 @@
         margin-bottom: 20px;
     }
 
-    /* .team-header {
-        max-width: 800px;
-    } */
+    .left-container {
+        margin-top: -2vh;
+    }
 
     .team-header h2 {
-        font-size: 50px;
+        font-size: 60px;
+        margin-bottom: 20px;
     }
 
-    .team-header p {
-        font-size: 90%;
+    #white-wave {
+        margin-top: -15rem;
     }
+
+    .contact {
+        transform: scale(0.8);
+    }
+
+    .contact .contact-header {
+        display: none;
+    }
+
 }
 
 @media (max-width: 800px) {
     .headline h1 {
         font-size: 40px;
     }
-    
+
     nav {
         max-width: 520px;
         padding: 18px 25px 18px 25px;
@@ -130,6 +135,7 @@
 
     .right-container .description {
         width: 70%;
+        margin-bottom: 40px;
     }
 
     .right-container .description h3 {
@@ -147,30 +153,61 @@
         width: 70%;
     }
 
-    .team-header {
-        display: block;
-        max-width: 600px;
-        width: 90%;
-        text-align: center;
+    .team-header h2 {
+        font-size: 40px;
     }
 
-    .team-header h2 {
-        width: 100%;
-        margin-bottom: 20px;
+    .services .product header h2 {
+        font-size: 40px;
+    }
+
+    footer .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    footer .content .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    footer .content .info .description{
+        margin: 20px auto 50px auto;
+    }
+
+    footer .content .info hr {
+        display: none;
+    }
+
+    footer .content .socialmedia {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 58px;
+        gap: 0;
+    }
+    
+    footer .content .socialmedia > * {
+        margin: 0 4vw;
     }
 }
 
 @media (max-width: 600px) {
     #page-home .content {
-        margin: 0 auto;
+        margin: 0 auto 10vh auto;
         text-align: center;
-        margin-bottom: 10vh;
     }
 
     #page-home .content article {
         display: block;
     }
-
+    
     .headline {
         text-align: center;
         margin: 0 auto;
@@ -187,7 +224,7 @@
         display: none;
     }
 
-    .socialmedia {
+    #page-home .socialmedia {
         text-align: center;
         margin: 85px auto 0 auto;
         display: flex;
@@ -195,7 +232,7 @@
         align-items: center;
     }
 
-    .socialmedia > * {
+    #page-home .socialmedia > * {
         align-self: center;
         margin: 0 -25vw;
     }
@@ -243,8 +280,8 @@
     }
 
     .right-container .description {
-        max-width: 450px;
         width: 90%;
+        margin-bottom: 5px;
     }
 
     .right-container .description h3 {
@@ -253,21 +290,36 @@
     }
 
     .left-container .description {
-        max-width: 450px;
         width: 90%;
     }
 
     .about-us-screen p {
         font-size: 95%;
+        margin: 0 auto;
     }
 
-    .team-header {
-        max-width: 500px;
+    .team-header p {
+        margin: 0 auto;
+    }
+
+    .services .product header h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        width: 90%;
+    }
+
+    .services .product header h3 {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .contact {
+        transform: scale(1);
     }
 }
 
 @media (max-width: 420px) {
-    .socialmedia {
+    #page-home .socialmedia {
         margin-top: 90px;
     }
 
@@ -294,7 +346,7 @@
     }
 
     .right-container .description h3 {
-        font-size: 25px;
+        font-size: 30px;
         margin-bottom: 10px;
     }
 
@@ -302,18 +354,12 @@
         max-width: 320px;
     }
 
-    .team-header {
-        margin-bottom: 10px;
-    }
-
     .team-header h2 {
-        font-size: 40px;
-        margin: auto 0 20px 0;
+        font-size: 30px;
     }
 
     .team-header p {
-        font-size: 80%;
-        margin-bottom: 20px;
+        font-size: 95%;
     }
 }
 
@@ -322,11 +368,7 @@
         max-width: 285px;
     }
 
-    .headline h1 {
-        font-size: 40px;
-    }
-
-    .socialmedia {
+    #page-home .socialmedia {
         margin-top: 85px;
     }
 
@@ -355,27 +397,22 @@
         line-height: 20px;
     }
 
-    .team-header {
-        max-width: 350px;
+    .team-header p {
+        font-size: 80%;
+        line-height: 20px;
     }
 }
 
 @media (max-width: 320px) {
+    .headline h1 {
+        font-size: 35px;
+    }
+
     .pillars > * {
         margin-top: 7vh;
     }
 
     .green-circle {
         display: none;
-    }
-
-    .team-header h2 {
-        font-size: 25px;
-        margin: auto 0 10px 0;
-    }
-
-    .team-header p {
-        line-height: 20px;
-        margin-bottom: 20px;
     }
 }

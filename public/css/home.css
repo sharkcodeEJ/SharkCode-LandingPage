@@ -1,7 +1,8 @@
 #page-home .content {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 100px 100px;
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-bottom: 125px;
 }
 
 #page-home .content header {
@@ -33,8 +34,8 @@
     font-weight: 500;
     color: #919191;
     margin-bottom: 50px;
-    max-width: 640px;
-    width: 79%;
+    width: 76%;
+    min-width: 420px;
 }
 
 .headline a {

@@ -1,102 +1,82 @@
 .services {
-    display: flex;
-    flex-direction: column;
+    margin-top: -8px;
     background-color: white;
     z-index: 2;
+    text-align: center;
 }
 
 .services .product {
     display: flex;
-    height: 100%;
-    padding: 0px 100px 0px 100px;
     flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
+    max-width: 1900px;
 }
-.services .product header{
-    margin-top: 160px;
+
+.services .product header {
+    margin-top: 5%;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
 }
-.services .product header h2{
+
+.services .product header h2 {
     display: flex;
     justify-content: center;
     width: 100%;
     font-style: normal;
     font-weight: bold;
     font-size: 48px;
-    line-height: 56px;
-    text-align: center;
-    text-transform: uppercase;
-
     color: var(--primary-color);
 
 }
-.services .product header h3{
+
+.services .product header h3 {
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
-    line-height: 28px;
-    text-align: center;
-    text-transform: uppercase;
-
     color: rgba(0, 33, 53, 0.25);
 }
 
-
-.services .product ul{
+.services .product ul {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style: none;
-    flex-wrap: nowrap;
-    margin-top: 142px;
-
+    flex-wrap: wrap;
+    margin-top: 5%;
 }
-.services .product ul li{
+.services .product ul li {
     display: flex;
     flex-direction: column;
-
     align-items: center;
-
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    text-align: center;
     text-transform: uppercase;
-
+    margin: 25px;
 }
-.services .product ul li  img{
+
+.services .product ul li img {
     width: 150px;
     height: 150px;
 }
 
-.services .product .button{
-    margin-top: 188px;
-    margin-bottom: 188px;
-    
-}
-.services .product .button a {
-    width: 275px;
-    height: 50px;
-
+.services .product .button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5% auto 0 auto;
+}
 
-
+.services .product .button a {
+    padding: 10px 65px 10px 65px;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
-    
     text-decoration: none;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
-    line-height: 28px;
-    text-align: center;
     color: #000000;
-
 }

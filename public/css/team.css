@@ -80,7 +80,7 @@
     box-sizing: border-box;
     width: 203px;
     height: 291px;
-    padding: 25px;
+    padding: 18px 25px 20px;
     margin-right: 80px;
     display: flex;
     flex-direction: column;
@@ -121,7 +121,7 @@
 }
 
 .team-cards .card h3 {
-    margin-top: 4px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
     font-family: Raleway;
@@ -148,7 +148,7 @@
 }
 
 .team-cards .card p{
-    margin-top: 12px;
+    margin-top: 8px;
     flex-grow: 1;
     max-height: 72px;
     overflow: hidden;

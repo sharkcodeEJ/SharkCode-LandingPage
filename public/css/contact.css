@@ -107,6 +107,7 @@
     font-weight: bold;
     font-size: 18px;
     color: rgba(0, 33, 53, 0.5);
+    transition: 400ms;
 }
 
 .contact-form .form-info #submitButton{
@@ -122,6 +123,7 @@
     font-weight: bold;
     font-size: 24px;
     color: #FFFFFF;
+    transition: 400ms;
 }
 
 .contact-form .form-info #submitButton:hover {

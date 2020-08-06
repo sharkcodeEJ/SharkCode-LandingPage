@@ -40,6 +40,9 @@
             </nav>
             <section id="info">
                 <article class="we-are-screen">
+                    <div class="whatsapp">
+                        <a href="https://api.whatsapp.com/send?l=pt&phone=5548984185640" rel="noopener" target="_blank"><img src="public/assets/icons/whatsapp.svg" alt="WhatsApp"></a>
+                    </div>
                     <h2>Somos uma Empresa Júnior de Jovens Empreendedores.</h2>
                 </article>
                 <article class="about-us-screen">
@@ -144,7 +147,7 @@
                             <h3>Paulo Zaneripe
                                 <span>Shark Team</span>
                             </h3>
-                            <p>Entusiasta na área de desenvolvimento web, viciado em café e procurando cada vez mais aperfeiçoar e acrescentar para meus conhecimentos na programação.</p>
+                            <p>Entusiasta na área de desenvolvimento web, viciado em café e procurando aperfeiçoar meus conhecimentos na programação.</p>
                             <div class="socialmedia">
                                 <a href="https://github.com/paulozaneripe" target="_blank"><img src="public/assets/icons/github.svg" alt="Github"></a>
                                 <a href="https://www.instagram.com/paulozanerip/" target="_blank"><img src="public/assets/icons/instagram.svg" alt="Instagram"></a>
@@ -176,6 +179,18 @@
                                 <a href="linkedin.com/in/akinncar" target="_blank"><img src="public/assets/icons/linkedin.svg" alt="Linkedin"></a>
                             </div>
                         </div>
+                        <div class="card">
+                            <img src="public/assets/images/time/profile.jpg" alt="">
+                            <h3>Dhow
+                                <span>Shark Team</span>
+                            </h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores id, iusto possimus, molestiae odit nostrum deleniti.</p>
+                            <div class="socialmedia">
+                                <a href="#" target="_blank"><img src="public/assets/icons/github.svg" alt="Github"></a>
+                                <a href="#" target="_blank"><img src="public/assets/icons/instagram.svg" alt="Instagram"></a>
+                                <a href="#" target="_blank"><img src="public/assets/icons/linkedin.svg" alt="Linkedin"></a>
+                            </div>
+                        </div>
                     </div>
                 </article>
                 <div id="white-wave"></div>
@@ -187,15 +202,22 @@
                         <h3>LEADING PAGES</h3>
                     </header>
                     <ul>
-                        <li><span><img src="public/assets/images/services/leading-pages/creative_draft_vb5x.svg"
-                                    alt="Creative Design"></span>Design Criativo</li>
-                        <li><span><img src="public/assets/images/services/leading-pages/undraw_career_progress_ivdb.svg"
-                                    alt="Personal or Business"></span>Pessoal ou Negócios</li>
-                        <li><span><img
-                                    src="public/assets/images/services/leading-pages/undraw_redesign_feedback_48ti.svg"
-                                    alt="Customer Focus"></span>Foco no Cliente</li>
-                        <li><span><img src="public/assets/images/services/leading-pages/undraw_progressive_app_m9ms.svg"
-                                    alt="Responsive website"></span>Site responsivo</li>
+                        <li>
+                            <span><img src="public/assets/images/services/leading-pages/creative_draft_vb5x.svg" alt="Creative Design"></span>
+                            Design Criativo
+                        </li>
+                        <li>
+                            <span><img src="public/assets/images/services/leading-pages/undraw_career_progress_ivdb.svg" alt="Personal or Business"></span>
+                            Pessoal ou Negócios
+                        </li>
+                        <li>
+                            <span><img src="public/assets/images/services/leading-pages/undraw_redesign_feedback_48ti.svg"alt="Customer Focus"></span>
+                            Foco no Cliente
+                        </li>
+                        <li>
+                            <span><img src="public/assets/images/services/leading-pages/undraw_progressive_app_m9ms.svg" alt="Responsive website"></span>
+                            Site responsivo
+                        </li>
                     </ul>
                     <div class="button">
                         <a href="#">Orçamento</a>
@@ -203,47 +225,46 @@
                 </article>
             </section>
             <section class="contact">
-                    <header class="contact-header">
-                        <h2>FORMULÁRIO PARA CONTATO</h2>
-                        <h3>CONTE-NOS O QUE VOCÊ IMAGINA E NÓS TORNAMOS REALIDADE PARA VOCÊ.</h3>
-                    </header>
-                    <div class="circle-form">
+                <header class="contact-header">
+                    <h2>FORMULÁRIO PARA CONTATO</h2>
+                    <h3>CONTE-NOS O QUE VOCÊ IMAGINA E NÓS TORNAMOS REALIDADE PARA VOCÊ.</h3>
+                </header>
+                <div class="circle-form">
                     <form name="contact" method="POST" data-netlify="true" class="contact-form">
-                    <fieldset class="form-info">
-                        <h1>Sobre Você</h1>
-                        <div class="field">
-                            <label for="nName"><span></span></label>
-                            <input type="text" name="nName" id="iName" placeholder="Nome">
-                            <i>
-                                <img src="./public/assets/icons/user_name.svg" alt="Nome">
-                            </i>
-                        </div>
-                        <div class="field">
-                            <label for="nEmail"><span></span></label>
-                            <input type="email" name="nEmail" id="iEmail" placeholder="E-mail">
-                            <i>
-                                <img src="./public/assets/icons/mail.svg" alt="Nome">
-                            </i>
-                        </div>
-                        <div class="field">
-                            <label for="nPhone"><span></span></label>
-                            <input type="text" name="nPhone" id="iPhone" placeholder="Telefone">
-                            <i>
-                                <img src="./public/assets/icons/phone_form.svg" alt="Nome">
-                            </i>
-                        </div>
-                        <div class="textarea">
-                            <textarea name="nText" id="iText" cols="30" rows="10"
-                                placeholder="Sua Mensagem aqui..."></textarea>
-                        </div>
-                        <div class="buttons">
-                            <button type="reset" id="resetButton">Limpar</button>
-                            <button type="submit" id="submitButton">Enviar</button>
-                        </div>
-                    </fieldset>
+                        <fieldset class="form-info">
+                            <h1>Sobre Você</h1>
+                            <div class="field">
+                                <label for="nName"><span></span></label>
+                                <input type="text" name="nName" id="iName" placeholder="Nome">
+                                <i>
+                                    <img src="./public/assets/icons/user_name.svg" alt="Nome">
+                                </i>
+                            </div>
+                            <div class="field">
+                                <label for="nEmail"><span></span></label>
+                                <input type="email" name="nEmail" id="iEmail" placeholder="E-mail">
+                                <i>
+                                    <img src="./public/assets/icons/mail.svg" alt="Nome">
+                                </i>
+                            </div>
+                            <div class="field">
+                                <label for="nPhone"><span></span></label>
+                                <input type="text" name="nPhone" id="iPhone" placeholder="Telefone">
+                                <i>
+                                    <img src="./public/assets/icons/phone_form.svg" alt="Nome">
+                                </i>
+                            </div>
+                            <div class="textarea">
+                                <textarea name="nText" id="iText" cols="30" rows="10"
+                                    placeholder="Sua Mensagem aqui..."></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button type="reset" id="resetButton">Limpar</button>
+                                <button type="submit" id="submitButton">Enviar</button>
+                            </div>
+                        </fieldset>
                     </form>
-                    </div>
-
+                </div>
             </section>
         </div>
     </main>
@@ -257,7 +278,7 @@
                     <hr>
                     <span class="description">
                         <h5>Tubarão - Santa Catarina</h5>
-                        <p>© 2020 - Todos os direitos reservados</p>
+                        <p>© <script>document.write(new Date().getFullYear())</script> - Todos os direitos reservados</p>
                     </span>
                 </div>
                 <div class="socialmedia">

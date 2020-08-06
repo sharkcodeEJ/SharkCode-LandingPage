@@ -63,6 +63,10 @@
         display: none;
     }
 
+    .about-us-screen{
+        min-height: 80vh;
+    }
+
     .right-container .description h3{
         font-size: 47px;
         margin-bottom: 20px;
@@ -126,7 +130,7 @@
     }
 
     .right-container .description {
-        width: 70%;
+        width: 90%;
         margin-bottom: 40px;
     }
 
@@ -142,7 +146,7 @@
     }
 
     .left-container .description {
-        width: 70%;
+        width: 90%;
     }
 
     .team-header h2 {
@@ -272,7 +276,6 @@
     }
 
     .right-container .description {
-        width: 90%;
         margin-bottom: 5px;
     }
 
@@ -281,21 +284,9 @@
         margin-bottom: 20px;
     }
 
-    .left-container .description {
-        width: 90%;
-    }
-
     .about-us-screen p {
         font-size: 95%;
         margin: 0 auto;
-    }
-
-    .right-container .description {
-        width: 90%;
-    }
-
-    .left-container .description {
-        width: 90%;
     }
 
     .team-header p {
@@ -319,13 +310,22 @@
 
     .contact-header h2 {
         font-size: 30px;
+        margin-bottom: 10px;
     }
     
     .contact-header h3 {
         font-size: 20px;
         font-weight: normal;
+        color: rgba(0, 33, 53, 0.5);
     }
 
+    .whatsapp {
+        position: fixed;
+        bottom: 7px;
+        right: 10px;
+        z-index: 100;
+        border-radius: 50%;
+    }
 }
 
 @media (max-width: 420px) {

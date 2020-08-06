@@ -10,7 +10,7 @@
     background-size: cover;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: -62px;
     overflow: hidden;
 }
@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 100vh;
+    min-height: 100vh;
     background: url(../assets/images/background-pillars-screen/fading3.svg) no-repeat center center, url(../assets/images/background-pillars-screen/x0-75.jpg) no-repeat center center;
     background-size: cover;
     color: white;

@@ -2,7 +2,7 @@ import React from 'react'
 
 import PageHomeTemplate from '../../templates/home-page';
 
-const HomePagePreview = ({entry} =>{
+const HomePagePreview = ({entry}) =>{
     const data = entry.getIn(['data']).toJS();
     return (
         <PageHomeTemplate

@@ -46,10 +46,9 @@ module.exports = merge(common,{
                             require('imagemin-gifsicle')({
                             interlaced: false
                             }),
-                            require('imagemin-mozjpeg')({
-                            progressive: true,
-                            arithmetic: false
-                            }),
+                            // require('imagemin-mozjpeg')({
+                            //         arithmetic:true
+                            // }),
                             require('imagemin-pngquant')({
                             floyd: 0.5,
                             speed: 2

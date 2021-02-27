@@ -1,0 +1,59 @@
+footer .footer-background {
+  display: block;
+  position: sticky;
+  height: 20vh;
+  width: 100%;
+  background: url(../assets/leftwave_footer.svg) no-repeat, url(../assets/rightwave_footer.svg) no-repeat;
+  background-size: 100%;
+  margin: 0 auto -7vh auto;
+  z-index: -1;
+}
+
+footer .teste {
+  background-color: var(--primary-color);
+  z-index: 4;
+}
+
+footer .content {
+  max-width: 90%;
+  margin: 0 3vw 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+footer .content .info {
+  display: flex;
+  align-items: center;
+  margin: auto auto 38px 0;
+  width: 90%;
+}
+
+footer .content .info .description {
+  display: flex;
+  flex-direction: column;
+  font-family: Raleway;
+  color: #F2F2F2;
+}
+
+footer .content .info hr { 
+  width: 25px;
+  background-color: #F2F2F2;
+  transform: rotate(90deg);
+}
+
+footer .content .info .description h5 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+footer .content .info .description p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+footer .content .socialmedia {
+  margin-bottom: 38px;
+}

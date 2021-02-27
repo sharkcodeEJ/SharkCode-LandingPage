@@ -1,0 +1,138 @@
+#page-home .content {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-bottom: 125px;
+}
+
+#page-home .content header {
+    margin: 40px 0 85px 0;
+}
+
+#page-home .content header img {
+    width: 228px;
+    height: 30px;
+}
+
+#page-home .content article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headline h1 {
+    color: var(--primary-color);
+    font-size: 34px;
+    font-weight: bold;
+    max-width: 1024px;
+    width: 90%;
+    margin-bottom: 40px;
+
+}
+
+.headline p {
+    font-size: 24px;
+    font-weight: 500;
+    color: #919191;
+    margin-bottom: 70px;
+    width: 76%;
+    min-width: 420px;
+}
+
+.headline a {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 10px 65px 10px 65px;
+    margin-top: 35px;
+    transition: padding 400ms;
+}
+
+.headline a:hover {
+    padding: 10px 80px 10px 80px;   
+}
+
+.socialmedia {
+    display: grid;
+    grid-template-columns: 0fr;
+    gap: 65px;
+}
+
+.socialmedia a {
+    cursor: initial;
+}
+
+.socialmedia img {
+    transition: transform 400ms;
+}
+
+.socialmedia img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#footer {
+    display: block;
+    position: sticky;
+    height: 20vh;
+    background: url(../assets/rightwave.svg) no-repeat, url(../assets/leftwave.svg) no-repeat;
+    background-size: 210vh;
+    width: 100%;
+    margin-bottom: -2px;
+    z-index: 2;
+}
+
+#division {
+    position: relative;
+    width: 100%;
+    height: 11vh;
+    background-size: cover;
+    background-color: var(--primary-color);
+    margin-bottom: -2px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/*
+Para trabalharmos melhor com a responsividade do site,
+achei melhor deixarmos a animação pra depois...
+
+@keyframes wave {
+    from {background-position: 100vw  bottom;}
+    to {background-position: 200vw bottom;}
+}
+
+#wave {
+    width: 100%; 
+    height: 200px; 
+    position: absolute; 
+    left: 0px; 
+    bottom: 0px; 
+    z-index: -1;
+}
+
+#wave:after, #wave:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background-repeat: repeat-x;
+    background-size: 100%;
+    background-position: bottom;
+    animation-name: wave;
+    animation-direction: normal;
+}
+ #wave:before {
+    z-index: 3;
+    background-image: url("/assets/rigthwavelong.svg");
+    animation-duration: 5s;
+}
+
+#wave:after {
+    z-index: 1;
+    background-image: url("/assets/leftwaveslin.svg");
+    animation-duration: 3s;
+}
+*/
